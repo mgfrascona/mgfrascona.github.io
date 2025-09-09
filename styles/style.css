@@ -1,0 +1,54 @@
+body {
+    background-color: rgb(35, 31, 132);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+main {
+    margin-top: 10px;
+    padding-left: 30px;
+    padding-top: 3px;
+    padding-bottom: 5px;
+}
+
+header {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    color: rgb(35, 31, 132);
+}
+
+.profile {
+    color: rgb(35, 31, 132);
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.favorites {
+    background-color: rgb(255, 255, 255);
+    color: rgb(35, 31, 132);
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-right: 35px;
+}
+
+#about {
+    margin-bottom: 190px;
+    background-color: rgb(255, 255, 255);
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 15px;
+}
+
+#favorites p {
+    font-weight: bold;
+}
+
+div {
+    text-align: left;
+}
+
+#portrait {
+    border: 10px solid rgb(75, 196, 73);
+}
