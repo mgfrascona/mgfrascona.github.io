@@ -17,6 +17,10 @@ header {
     color: rgb(35, 31, 132);
 }
 
+#welcome {
+    color: white;
+}
+
 .profile {
     color: rgb(35, 31, 132);
     margin-top: 10px;
