@@ -44,6 +44,7 @@ header {
     background-color: rgb(255, 255, 255);
     padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 15px;
     border-radius: 15px;
 }
 
@@ -81,4 +82,42 @@ div {
     align-items: center;
     gap: 10px;
     margin-top: 10px;
+}
+
+#todo-form {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(255, 255, 255);
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-radius: 15px;
+    color: rgb(35, 31, 132);
+}
+
+.todo-list li {
+    margin-top: 5px;
+}
+
+.todo-list li span {
+    padding-right: 8px;
+}
+
+button {
+    background-color: rgb(35, 31, 132);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+#new-todo {
+    width: 70%;
+    padding: 8px;
+    border: 1.5px solid rgb(35, 31, 132);
+    border-radius: 15px;
 }

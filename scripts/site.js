@@ -38,4 +38,4 @@ nextButton.addEventListener('click', () => {
 setInterval(() => {
     currentImage = (currentImage + 1) % urls.length;
     showImages();
-}, 3000)
+}, 3000);
