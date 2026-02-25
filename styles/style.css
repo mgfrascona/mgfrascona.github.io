@@ -1,3 +1,9 @@
+/* Animations */
+@keyframes websiteFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 :root {
     --UIGreen: rgb(76, 198, 88);
     --favBlue: rgb(56, 93, 196);
@@ -7,6 +13,7 @@ body {
     background-color: var(--favBlue);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
+    animation: websiteFadeIn 0.3s ease-in;
 }
 
 main {
@@ -18,8 +25,76 @@ main {
 
 header {
     background-color: rgb(255, 255, 255);
-    padding: 10px;
+    padding: 0px;
     color: var(--favBlue);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--favBlue);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+}
+
+#logo {
+    fill: var(--favBlue);
+}
+
+.logo-container:hover {
+    cursor: pointer;
+}
+
+.logo-container:hover #logo{
+    fill: var(--UIGreen);
+}
+
+.logo-container:hover h2{
+    color: var(--UIGreen);
+}
+
+nav {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+nav ul li {
+    margin: 0;
+    width: 200px;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--favBlue);
+    font-weight: bold;
+    padding: 8px 16px;
+}
+
+nav ul li:hover {
+    background-color: var(--favBlue);
+}
+
+nav ul li:hover a {
+    color: white;
 }
 
 #welcome {
@@ -42,12 +117,13 @@ header {
     color: rgb(255, 255, 255);
     background-color: var(--favBlue);
     font-weight: bold;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 15px;
+    padding: 8px 16px;
+    border-radius: 25px;
     margin-right: 15px;
+    border: 2px solid var(--favBlue);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: inline-block;
 }
 
 .favorites {
@@ -108,27 +184,29 @@ div {
 .profile #about .projectButtons a:hover{
     background-color: var(--UIGreen);
     color: black;
-    border: 3px solid black;
-    border-radius: 70px;
+    border: 2px solid black;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 #buttons button, #todo-form button {
     background-color: var(--UIGreen);
     color: white;
-    border: none;
-    border-radius: 70px;
-    color: white;
-    font-weight: bold;
-    padding: 8px 12px;
+    border: 2px solid var(--UIGreen);
     border-radius: 25px;
+    font-weight: bold;
+    padding: 8px 16px;
     cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 #buttons button:hover, #todo-form button:hover {
     background-color: var(--UIGreen);
     color: black;
-    border: 3px solid black;
-    border-radius: 70px;
+    border: 2px solid black;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 #todo-form {
@@ -197,22 +275,27 @@ div {
     background-color: rgb(35, 31, 132);
     color: white;
     font-weight: bold;
-    border: none;
-    padding: 30px 30px;
-    border-radius: 70px;
+    border: 2px solid rgb(35, 31, 132);
+    padding: 12px 30px;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 #newPokemon:hover {
     background-color: var(--UIGreen);
     color: black;
-    border: 5px solid black;
+    border: 2px solid black;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
 #newPokemon:active {
-    transform: scale(0.95);
+    transform: translateY(-1px) scale(0.98);
     background-color: black;
     color: var(--UIGreen);
-    border: none;
+    border: 2px solid var(--UIGreen);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
