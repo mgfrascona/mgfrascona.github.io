@@ -42,6 +42,7 @@ header a {
     align-items: center;
     gap: 10px;
     padding: 5px;
+    padding-left: 25px;
 }
 
 #logo {
@@ -60,13 +61,9 @@ header a {
     color: var(--UIGreen);
 }
 
-nav {
-    justify-content: space-evenly;
-    display: flex;
-}
-
 nav ul {
     list-style: none;
+    padding-left: 0;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -91,6 +88,7 @@ nav ul li a {
 
 nav ul li:hover {
     background-color: var(--favBlue);
+    cursor: pointer;
 }
 
 nav ul li:hover a {
@@ -126,52 +124,7 @@ nav ul li:hover a {
     display: inline-block;
 }
 
-.favorites {
-    background-color: rgb(255, 255, 255);
-    color: black;
-    padding: 15px;
-    border-radius: 15px;
-    margin-top: 10px;
-    margin-right: 35px;
-}
 
-#about {
-    margin-bottom: 190px;
-    background-color: rgb(255, 255, 255);
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    border-radius: 15px;
-}
-
-#favorites p {
-    font-weight: bold;
-}
-
-div {
-    text-align: left;
-}
-
-#portrait {
-    border: 10px solid var(--UIGreen);
-}
-
-#carousel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-height: 300px;
-    overflow: hidden;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-#carousel img {
-    max-height: 300px;
-    aspect-ratio: auto 300 / 400;
-    border-radius: 10px;
-}
 
 #buttons {
     display: flex;
@@ -298,4 +251,18 @@ div {
     color: var(--UIGreen);
     border: 2px solid var(--UIGreen);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 5px;
+    }
+    nav ul li {
+        width: 100%;
+        height: auto;
+        line-height: normal;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }

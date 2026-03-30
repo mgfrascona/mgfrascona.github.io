@@ -24,74 +24,84 @@
                 <li><a href="#">Projects</a></li>
                 <li><a href="#">Resume</a></li>
                 <li><a href="#">About</a></li> 
-                <li><a href="#">Contact</a></li>
+                <li><a href="contact/contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div id="welcome">
-            <script>
-                const hours = new Date().getHours() // get the current hour
-
-                const isMorning = hours >= 4 && hours < 12 // is it morning?
-                const isAfternoon = hours >= 12 && hours < 17 // is it afternoon?
-                const isEvening = hours >= 17 || hours < 4 // is it evening?
-
-                if (isMorning) {
-                    welcome.textContent = 'Good Morning!'
-                }
-
-                else if (isAfternoon) {
-                    welcome.textContent = 'Good Afternoon!'
-                }
-
-                else {
-                    welcome.textContent = 'Good Evening!'
-                }
-
-            </script>
-        </div>
-        <div id="carousel">
-            <img alt="Image 1">
-            <img alt="Image 2">
-            <img alt="Image 3">
-        </div>
-        <div id="buttons">
-            <button id="prev">Previous</button>
-            <button id="next">Next</button>
-        </div>
-        <div class="profile">
-            <img src = "/images/michaelfrascona.png" id="portrait" alt = "Michael Frascona">
-            <div id = "about">
-                <h3>About Me</h3>
-                <p>Web designer with the goal of adding life and artistic flair.</p>
-                <div class="projectButtons">
-                    <a href="todo/index.html">To-do list</a>
-                    <a href="pokemon-api/index.html">Pokemon API</a>
-                </div>
+        <div class="hero">
+            <div class="hero-content">
+                <h2>Creating visuals. Building websites. Designing experiences.</h2>
             </div>
         </div>
-
-        <div class = "favorites">
-            <h3>Favorites</h3>
-            <p>My favorite movies are:</p>
+        <div class="missionStatement">
+            <h3>My Mission</h3>
+            <p>I strive to create user experiences that are not only functional but also visually appealing. My goal is to bridge the gap between design and development to deliver solutions for businesses of every size.</p>
+        </div>
+        <div class="skills">
+            <h3>Skills</h3>
+            <div class="skillsSection">
+                <h4>Design & Creativity</h4>
                 <ul>
-                    <li>Toy Story (Childhood classic)</li>
-                    <li>The Shining</li>
-                    <li>Shrek</li>
-                    <li>Dungeons & Dragons: Honor Among Thieves</li>
-                    <li>The Super Mario Bros. Movie</li>
-                    <li>Superman (2025)</li>
+                    <li>CSS & JavaScript animation</li>
+                    <li>UI/UX design</li>
+                    <li>Figma & Adobe XD</li>
+                    <li>Graphic design</li>
                 </ul>
-            <p>My favorite books are:</p>
+            </div>
+            <div class="skillsSection">
+                <h4>Frontend Development</h4>
                 <ul>
-                    <li>DeadEndia (Graphic novel series)</li>
-                    <li>The Hobbit</li>
-                    <li>Various nonfiction books about prehistoric life and outer space</li>
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>React.js</li>
+                    <li>Responsive design & accessibility</li>
                 </ul>
+            </div>
+            <div class="skillsSection">
+                <h4>Data Management</h4>
+                <ul>
+                    <li>MySQL</li>
+                    <li>MongoDB</li>
+                    <li>Database design & management</li>
+                </ul>
+            </div>
+            <div class="skillsSection">
+                <h4>Tools & Workflow</h4>
+                <ul>
+                    <li>GitHub</li>
+                    <li>Azure DevOps</li>
+                    <li>Version control</li>
+                </ul>
+            </div>
+        </div>
+        <div class = "projectsGallery">
+            <h3>Projects</h3>
+            <p>Here are some of my projects:</p>
+            <div class="projectBox">
+                <h4>Lori Langendorf, CFO</h4>
+                <p>A custom website for Lori Langendorf, the Chief Financial Officer of a mid-sized company based in Sault Ste. Marie, MI.</p>
+            </div>
+            <div class="projectBox">
+                <h4>Avalon Adventures</h4>
+                <p>A custom website for Avalon Adventures, a fictional travel company based in St. John's, NL, Canada.</p>
+            </div>
+            <div class="projectBox">
+                <h4>Pokemon API</h4>
+                <p>A JavaScript-run API fetcher and generator for the Pokemon API, showcasing various Pokemon data and functionality.</p>
+            </div>
+            <div class="projectBox">
+                <h4>To-Do List App</h4>
+                <p>A simple yet effective to-do list application built with HTML, CSS, and JavaScript. Includes working checkmark system!</p>
+            </div>
+        </div>
+        <div class="resumeDownload">
+            <a href="resume.pdf" download>Download Resume</a>
         </div>
     </main>
+    <footer>
+        <p>&copy; 2026 Michael Frascona. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
