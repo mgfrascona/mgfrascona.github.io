@@ -1,0 +1,188 @@
+/* "Who's that Pokemon?" - full page canvas */
+@keyframes headerPopsOut {
+    0% {
+        transform: scale(0.5) rotate(0deg);
+        opacity: 0;
+    }
+    25% {
+        transform: scale(1.5) rotate(25deg);
+        opacity: 1;
+    }
+    33% {
+        transform: scale(1) rotate(-13deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.5) rotate(-25deg);
+        opacity: 1;
+    }
+    66% {
+        transform: scale(1.5) rotate(15deg);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(1) rotate(14deg);
+        opacity: 1;
+    }
+    90% {
+        transform: scale(0.5) rotate(-25deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.pokemon-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 120px);
+    margin: 0;
+    padding: 20px 30px;
+    background: radial-gradient(ellipse at center, rgb(211, 242, 255) 0%, rgb(201, 9, 9) 70%);
+    position: relative;
+}
+
+/* Back button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgb(35, 31, 132);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 25px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.back-button:hover {
+    background-color: yellow;
+    color: rgb(220, 0, 0);
+    border: 2px solid black;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+}
+
+.back-button:active {
+    transform: translateY(-1px) scale(0.98);
+    background-color: black;
+    color: var(--UIGreen);
+    border: 2px solid var(--UIGreen);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Header */
+#pokemonHeader {
+    color: rgb(255, 255, 94);
+    text-shadow: 0 0 10px rgba(56, 125, 255, 0.8);
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    animation: headerPopsOut 0.6s ease-out;
+    font-family: 'Titan One', cursive;
+}
+
+#pokemonName {
+    text-transform: capitalize;
+    text-align: center;
+}
+
+/* Pokemon image */
+#image {
+    text-align: center;
+    margin-top: 0;
+}
+
+#image img {
+    width: 350px;
+    max-width: 80vw;
+    cursor: pointer;
+    transition: filter 0.6s ease, transform 0.3s ease;
+}
+
+#image img.silhouette {
+    filter: brightness(0);
+}
+
+#image img.silhouette:hover {
+    transform: scale(1.05);
+}
+
+#image img.revealed {
+    filter: brightness(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+    animation: pokemonReveal 0.6s ease-out;
+}
+
+/* New Pokemon button */
+#newPokemon {
+    display: block;
+    margin-top: 10px;
+    background-color: rgb(35, 31, 132);
+    color: white;
+    font-weight: bold;
+    border: 2px solid rgb(35, 31, 132);
+    padding: 25px 40px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#newPokemon:hover {
+    background-color: yellow;
+    color: rgb(220, 0, 0);
+    border: 2px solid black;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+}
+
+#newPokemon:active {
+    transform: translateY(-1px) scale(0.98);
+    background-color: black;
+    color: var(--UIGreen);
+    border: 2px solid var(--UIGreen);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Reveal animation */
+@keyframes pokemonReveal {
+    0% {
+        filter: brightness(0);
+        transform: scale(1.1);
+    }
+    50% {
+        filter: brightness(1.5);
+    }
+    100% {
+        filter: brightness(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+        transform: scale(1);
+    }
+}
+
+.hint {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-top: 0;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    #pokemonHeader {
+        font-size: 2rem;
+    }
+
+    .back-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}

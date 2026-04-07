@@ -4,9 +4,36 @@
     to { opacity: 1; }
 }
 
+@keyframes h2FadeIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes h2Shadows {
+    0% {
+        text-shadow: 0 0 5px #4b75ff;
+    }
+    50% {
+        text-shadow: 0 0 20px #4b75ff;
+    }
+    100% {
+        text-shadow: 0 0 5px #4b75ff;
+    }
+}
+
 :root {
     --UIGreen: rgb(76, 198, 88);
-    --favBlue: rgb(56, 93, 196);
+    --favBlue: rgb(13, 27, 75);
 }
 
 body {
@@ -16,13 +43,6 @@ body {
     animation: websiteFadeIn 0.3s ease-in;
 }
 
-main {
-    margin-top: 10px;
-    padding-left: 30px;
-    padding-top: 3px;
-    padding-bottom: 5px;
-}
-
 header {
     background-color: rgb(255, 255, 255);
     padding: 0px;
@@ -30,6 +50,10 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Keeps it on top of other content */
 }
 
 header a {
@@ -103,6 +127,55 @@ nav ul li:hover a {
     text-align: center;
 }
 
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 100px; /* matches your nav height */
+    color: white;
+    background-color: rgb(20, 20, 52);
+    user-select: none;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.hero .hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.5rem;
+    pointer-events: none;
+    animation: h2Shadows 3s ease-in-out infinite;
+}
+
+.hero:hover {
+    cursor: grab;
+}
+
+.hero:active {
+    cursor: grabbing;
+}
+
+.hero h2 {
+    margin-left: 5px;
+    margin-right: 5px;
+    animation: h2FadeIn 1s ease-in;
+}
+
 .profile {
     color: black;
     margin-top: 10px;
@@ -123,8 +196,6 @@ nav ul li:hover a {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     display: inline-block;
 }
-
-
 
 #buttons {
     display: flex;
@@ -198,59 +269,6 @@ nav ul li:hover a {
     padding: 8px;
     border: 1.5px solid rgb(35, 31, 132);
     border-radius: 15px;
-}
-
-#image {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#pokemonName {
-    text-transform: capitalize;
-    text-align: center;
-}
-
-#pokemonHeader {
-    text-align: center;
-}
-
-#image img {
-    width: 50%;
-    padding: 0px;
-    margin: 0px;
-}
-
-#newPokemon {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    background-color: rgb(35, 31, 132);
-    color: white;
-    font-weight: bold;
-    border: 2px solid rgb(35, 31, 132);
-    padding: 12px 30px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-#newPokemon:hover {
-    background-color: var(--UIGreen);
-    color: black;
-    border: 2px solid black;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-
-#newPokemon:active {
-    transform: translateY(-1px) scale(0.98);
-    background-color: black;
-    color: var(--UIGreen);
-    border: 2px solid var(--UIGreen);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {

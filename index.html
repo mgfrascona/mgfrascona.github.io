@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Homepage | Michael Frascona</title>
-    <script src="/scripts/site.js" defer></script>
-    <link rel="stylesheet" href="/styles/style.css">
+    <script src="scripts/site.js" defer></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.183.2/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.183.2/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="scripts/scene.js"></script>
 </head>
 
 <body>
@@ -31,8 +40,11 @@
 
     <main>
         <div class="hero">
+            <canvas id="hero-canvas"></canvas>
             <div class="hero-content">
-                <h2>Creating visuals. Building websites. Designing experiences.</h2>
+                <h2>Creating visuals.</h2>
+                <h2>Building websites.</h2>
+                <h2>Designing experiences.</h2>
             </div>
         </div>
         <div class="missionStatement">

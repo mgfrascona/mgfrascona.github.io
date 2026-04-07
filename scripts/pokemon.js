@@ -1,46 +1,45 @@
-const url = 'https://pokeapi.co/api/v2/pokemon/' + Math.floor(Math.random() * 150)
+const pokemonName = document.getElementById('pokemonName');
+const pokemonImg = document.querySelector('#image img');
+const pokemonHeader = document.getElementById('pokemonHeader');
+const newPokemonButton = document.getElementById('newPokemon');
 
-function getRandomPokemon() {
-    fetch(url)
+let revealed = false;
+
+function getRandomPokemonUrl() {
+    const id = Math.floor(Math.random() * 150) + 1;
+    return 'https://pokeapi.co/api/v2/pokemon/' + id;
+}
+
+function loadPokemon() {
+    revealed = false;
+    pokemonHeader.textContent = "Who's that Pokemon?";
+    pokemonName.textContent = '';
+    pokemonImg.classList.remove('revealed');
+    pokemonImg.classList.add('silhouette');
+    pokemonImg.src = '';
+    pokemonImg.alt = '';
+
+    fetch(getRandomPokemonUrl())
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            pokemonImg.src = data.sprites.other['official-artwork'].front_default;
+            pokemonImg.alt = data.name;
+            pokemonImg.dataset.name = data.name;
         })
-        .catch(error => console.error('Error:', error))
+        .catch(error => console.error('Error:', error));
 }
 
-function getPokemonName() {
-    fetch(url)
-        .then(response => response.json())
-        .then (data => {
-            h2 = document.getElementById('pokemonName')
-            h2.textContent = data.name
-        })
-        .catch(error => console.error('Error:', error))
+function revealPokemon() {
+    if (revealed) return;
+    revealed = true;
+    pokemonImg.classList.remove('silhouette');
+    pokemonImg.classList.add('revealed');
+    pokemonHeader.textContent = "It's " + pokemonImg.dataset.name + "!";
+    pokemonHeader.style.textTransform = 'capitalize';
 }
 
-getPokemonName()
+pokemonImg.addEventListener('click', revealPokemon);
 
-function renderPokemon() {
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            img.src = data.sprites.front_default
-            img.alt = data.name
-        })
-        .catch(error => console.error('Error:', error))
-}
+newPokemonButton.addEventListener('click', loadPokemon);
 
-renderPokemon()
-
-const img = document.createElement('img')
-img.src = url.front_default // image of the pokemon
-img.alt = url.name // name of the pokemon
-
-const parentElement = document.getElementById('image')
-parentElement.append(img)
-
-const newPokemonButton = document.getElementById('newPokemon')
-newPokemonButton.addEventListener('click', () => {
-    location.reload()
-})
+loadPokemon();
