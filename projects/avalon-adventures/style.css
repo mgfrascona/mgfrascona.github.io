@@ -1,0 +1,229 @@
+body{
+    background-color:#1d4286;
+    width:1440px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0px;
+    font-family: tahoma;
+}
+
+header{
+    color:#fafeff;
+    background-color:blue;
+    height:350px;
+    width:1440px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0px;
+    padding-left:auto;
+    padding-right:auto;
+    padding-bottom:40px;
+    text-align:center;
+    background-image: url(Stjohns.png);
+    background-position-y:-300px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    transition: ease-in;
+}
+
+#header2 {
+    color:#fafeff;
+    background-color:blue;
+    height:350px;
+    width:1440px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0px;
+    padding-left:auto;
+    padding-right:auto;
+    padding-bottom:40px;
+    text-align:center;
+    background-image: url(whale2.jpg);
+    background-position-y:-450px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    transition: ease-in;
+}
+
+#logo {
+    height: 200px;
+    padding-right: 1250px;
+}
+
+#tagline {
+    padding-top:0px;
+    font-size: 45px;
+    transition: all 0.5s ease;
+}
+
+#push{
+    color:#fafeff;
+    font-style:italic;
+    background-color:#1d4286;
+    margin-top: 30px;
+    margin-bottom: 300px;
+    padding:10px;
+    font-size:22px;
+    border:none;
+    border-radius:5px;
+}
+nav{
+    color:#fafeff;
+    background-color:#292929;
+    text-align:center;
+    height:37px;
+    width: 1440px;
+    font-size:20px;
+    padding-top:10px;
+    padding-bottom:0px;
+    text-decoration-line:none;
+}
+a{
+    color:#fafeff;
+    margin: 5px;
+    text-decoration:none;
+    ;
+}
+
+#Introduction {
+    color: #fafeff;
+    height: 80px;
+    width:500px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right:auto;
+    font-size: 22px;
+    line-height: 2;
+    text-align:center;
+}
+
+.container2 {
+    background-color: #1d4286;
+    margin-top: 25px;
+    margin-left: 17px;
+    display: grid;
+    font-size: 20px;
+    grid-template-columns: 700px;
+    grid-gap: 5px;
+}
+
+#Whale-Watching {
+    background-color: #0097b2;
+    color: #fafeff;
+    height: 310px;
+    width:700px;
+    background-image: url(whale-watching-preview.jpg);
+    background-position: -300%;
+    background-repeat: no-repeat;
+    grid-column: 1;
+}
+
+p {
+    padding-right: 28px;
+    text-align: right;
+    margin-left: 20px;
+    font-size: 24px;
+}
+
+#Description {
+    text-align: right;
+    margin-left: 370px;
+    width: 300px;
+}
+
+#Link {
+    color:#fafeff;
+    font-style:italic;
+    background-color:#1d4286;
+    margin-top: 30px;
+    margin-left: 500px;
+    padding:10px;
+    font-size:22px;
+    border:none;
+    border-radius:5px;
+}
+
+#Family-Ferryland-Adventure {
+    background-color: #0097b2;
+    color: #fafeff;
+    height: 310px;
+    width:700px;
+    background-image: url(FerrylandIcon.png);
+    background-position-y: 60%;
+    background-position-x: -6.7%;
+    background-size: 55%;
+    background-repeat: no-repeat;
+    grid-column: 2;
+}
+
+#Adult_Brewery_Crawl {
+    background-color: #0097b2;
+    color: #fafeff;
+    height: 310px;
+    width:700px;
+    background-image: url(Pub.jpg);
+    background-position-y: 60%;
+    background-position-x: -20%;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    grid-column: 2;
+}
+
+#Family_Culture_Package {
+    background-color: #0097b2;
+    color: #fafeff;
+    height: 310px;
+    width:700px;
+    background-image: url(family_picnic.jpg);
+    background-position-y: 60%;
+    background-position-x: -20%;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    grid-column: 1;
+}
+
+#Novice-East-Coast-Hiking-Experience {
+    background-color: #0097b2;
+    color: #fafeff;
+    height: 310px;
+    width:700px;
+    background-image: url(hiking1.png);
+    background-position-y: 60%;
+    background-position-x: -20%;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    grid-column: 1;
+}
+
+#Staff_Bios {
+    background-color: #0097b2;
+    color: #fafeff;
+    height: 310px;
+    width:700px;
+    background-image: url(staffmembers.jpg);
+    background-position-y: 6%;
+    background-position-x: 340%;
+    background-size: 120%;
+    background-repeat: no-repeat;
+    grid-column: 2;
+}
+
+footer {
+    color:#fafeff;
+    background-color:#292929;
+    text-align:center;
+    height:37px;
+    width: 1440px;
+    font-size:20px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding-top:10px;
+    padding-bottom:0px;
+    text-decoration-line:none;  
+}

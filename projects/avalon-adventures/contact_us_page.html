@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<Html>
+    <head>
+        <link rel="stylesheet" href="stylecontactus.css">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <script src="script.js"></script>
+        <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="header2">
+                <div id="logo"><a href="index.html"><img src="Avalon-Adventures-Transparent-3.png" height="250px"></a></div>
+                <div id="tagline">Contact Us</div>
+            </header2>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about_us_page.html">About Us</a>
+                <a href="contact_us_page.html">Contact Us</a>
+            </nav>
+            <main>
+                <div class="wrapper">
+                    <h1>Customer Support</h1>
+                    <div id="error_message"></div>
+
+                    <form id="myform" onsubmit="return validation()">
+                        <div class="input_field">
+                            <input type="text" placeholder="Name" id="name">
+                        </div>
+                        <div class="input_field">
+                            <input type="text" placeholder="Email" id="email">
+                        </div>
+                        <div class="input_field">
+                            <input type="text" placeholder="Phone Number (Optional)" id="phone">
+                        </div>
+                        <div class="input_field">
+                            <textarea id="question" cols="30" rows="10" placeholder="Please insert your question"></textarea>
+                        </div>
+                        <div class="button">
+                            <input type="submit">
+                        </div>
+                    </form>
+                </div>
+            </main>
+            <div id=contact_info><b>Email: </b>info@AvalonAdventures.ca, <b>Phone: </b>709-555-5555, <b>Address: </b>404 Herry Ln. St. John's, NL, Canada A1A-3M8</div>
+            <footer><a href="index.html"><img src="facebookicon.png" height="25px"></a>
+                <a href="index.html"><img src="twittericon.png" height="25px"></a>
+                <a href="index.html"><img src="instagramicon.png" height="25px"></a>
+            </footer>
+        </div>
+    </body>
+</Html>

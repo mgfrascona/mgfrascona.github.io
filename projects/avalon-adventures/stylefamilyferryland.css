@@ -1,0 +1,202 @@
+body{
+    background-color:#1d4286;
+    width:1440px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0px;
+    font-family: tahoma;
+}
+
+#header2 {
+    color:#fafeff;
+    background-color:blue;
+    height:350px;
+    width:1440px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0px;
+    padding-left:auto;
+    padding-right:auto;
+    padding-bottom:40px;
+    text-align:center;
+    background-image: url(ferryland.png);
+    background-position-y:-100px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    transition: ease-in;
+}
+
+#logo {
+    height: 200px;
+    padding-right: 1250px;
+}
+
+#tagline {
+    padding-top:0px;
+    font-size: 45px;
+    transition: ease-in;
+}
+
+nav{
+    color:#fafeff;
+    background-color:#292929;
+    text-align:center;
+    height:37px;
+    width: 1440px;
+    font-size:20px;
+    margin-top: 136px;
+    padding-top:10px;
+    padding-bottom:0px;
+    text-decoration-line:none;
+}
+a{
+    color:#fafeff;
+    margin: 5px;
+    text-decoration:none;
+    ;
+}
+
+#Introduction {
+    color: #fafeff;
+    height: 80px;
+    width:800px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right:auto;
+    font-size: 22px;
+    line-height: 2;
+    text-align:center;
+}
+
+.container2 {
+    background-color: #1d4286;
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+#paragraph1 {
+    text-align:left;
+    height:350px;
+    font-size: 22px;
+    line-height: 2;
+    padding-left: 50px;
+    padding-right: 700px;
+    padding-top: 100px;
+    background-image: url(colonyofavalon.jpg);
+    background-size: cover;
+    background-position-y: -160px;
+}
+
+p1 {
+    text-align:left;
+    font-size: 22px;
+    line-height: 2;
+    background-color: #292929a9;
+    padding: 9px;
+}
+
+#paragraph2 {
+    text-align:right;
+    height:350px;
+    font-size: 22px;
+    line-height: 2;
+    padding-left: 700px;
+    padding-right: 50px;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    background-image: url(Ferryland2.png);
+    background-size: cover;
+}
+
+p2 {
+    text-align:right;
+    font-size: 22px;
+    line-height: 2;
+    background-color: #292929a9;
+    padding: 9px;
+}
+
+#paragraph3 {
+    text-align:left;
+    height:350px;
+    font-size: 22px;
+    line-height: 2;
+    padding-left: 50px;
+    padding-right: 700px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    margin-bottom: 0px;
+    background-image: url(FerrylandPicnic.png);
+    background-size: cover;
+    background-position-y: -460px;
+}
+
+p3 {
+    text-align:left;
+    font-size: 22px;
+    line-height: 2;
+    background-color: #292929a9;
+    padding: 9px;
+}
+
+#paragraph4 {
+    text-align:right;
+    height:350px;
+    font-size: 22px;
+    padding-left: 700px;
+    padding-right: 50px;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    line-height: 2;
+    background-image: url(ferryland_picnic2.jpg);
+}
+
+p4 {
+    text-align:right;
+    font-size: 22px;
+    line-height: 2;
+    background-color: #292929a9;
+    padding: 9px;
+}
+
+#Link{
+    color:#fafeff;
+    font-style:italic;
+    background-color:#1d4286;
+    margin-top: 30px;
+    margin-bottom: 300px;
+    padding:10px;
+    font-size:22px;
+    border:none;
+    border-radius:5px;
+}
+
+#priceinfo {
+    color:#fafeff;
+    background-color:#292929;
+    text-align:center;
+    height:37px;
+    width: 1440px;
+    font-size:20px;
+    margin-top: 0px;
+    padding-top:10px;
+    padding-bottom:0px;
+    text-decoration-line:none;  
+}
+
+footer {
+    color:#fafeff;
+    background-color:#292929;
+    text-align:center;
+    height:37px;
+    width: 1440px;
+    font-size:20px;
+    margin-top: 78px;
+    margin-bottom: 30px;
+    padding-top:10px;
+    padding-bottom:0px;
+    text-decoration-line:none;  
+}
