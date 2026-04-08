@@ -1,0 +1,162 @@
+/* ── To-Do List ── */
+#todo-form {
+    width: 50%;
+    max-width: 600px;
+    margin: 200px auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 30px;
+    color: white;
+}
+
+#todo-form h3 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.todo-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.07);
+    transition: background-color 0.2s ease;
+}
+
+.todo-list li:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.todo-list li input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--UIGreen);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.todo-list li span {
+    flex: 1;
+    font-size: 1.1rem;
+    transition: opacity 0.2s ease, text-decoration 0.2s ease;
+}
+
+.todo-list li.completed span {
+    text-decoration: line-through;
+    opacity: 0.45;
+}
+
+.todo-delete {
+    background: transparent;
+    border: 1px solid rgba(255, 80, 80, 0.5);
+    color: rgba(255, 100, 100, 0.8);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.todo-delete:hover {
+    background-color: rgba(255, 80, 80, 0.2);
+    color: white;
+}
+
+.todo-input-row {
+    display: flex;
+    gap: 10px;
+}
+
+#new-todo {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+#new-todo::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+#new-todo:focus {
+    border-color: var(--UIGreen);
+}
+
+#todo-form button {
+    display: block;
+    margin-top: 10px;
+    background-color: var(--UIGreen);
+    color: white;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 25px;
+    border: 2px solid var(--UIGreen);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#todo-form button:hover {
+    background-color: yellow;
+    color: rgb(220, 0, 0);
+    border: 2px solid black;
+    transform: translateY(-3px) scale(1.1);
+}
+
+#todo-form button:active {
+    transform: translateY(-1px) scale(0.98);
+    background-color: black;
+    color: var(--UIGreen);
+    border: 2px solid var(--UIGreen);
+}
+
+/* Back button */
+.back-button {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    z-index: 1001;
+    background-color: rgb(35, 31, 132);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 25px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+.back-button:hover {
+    background-color: yellow;
+    color: rgb(220, 0, 0);
+    border: 2px solid black;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+}
+
+.back-button:active {
+    transform: translateY(-1px) scale(0.98);
+    background-color: black;
+    color: var(--UIGreen);
+    border: 2px solid var(--UIGreen);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}

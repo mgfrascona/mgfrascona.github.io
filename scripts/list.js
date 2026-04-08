@@ -1,9 +1,7 @@
-const todoForm = document.querySelector('#todo-form')
 const todoList = document.querySelector('.todo-list')
 const todoInput = document.querySelector('#new-todo')
 const inputButton = document.querySelector('#todo-form button')
 
-// Get the list from local storage
 const todos = JSON.parse(localStorage.getItem('todo-list')) || []
 
 function save() {
@@ -15,7 +13,16 @@ function renderTodos() {
 
     todos.forEach((todo, index) => {
         const li = document.createElement('li')
-        li.dataset.index = index
+        li.className = todo.completed ? 'completed' : ''
+
+        const checkbox = document.createElement('input')
+        checkbox.type = 'checkbox'
+        checkbox.checked = todo.completed
+        checkbox.addEventListener('change', () => {
+            todos[index].completed = checkbox.checked
+            save()
+            renderTodos()
+        })
 
         const span = document.createElement('span')
         span.textContent = todo.text
@@ -29,28 +36,24 @@ function renderTodos() {
             renderTodos()
         })
 
-        li.append(span, deleteBtn)
+        li.append(checkbox, span, deleteBtn)
         todoList.append(li)
     })
 }
 
-// Add a new item to the list
-inputButton.addEventListener('click', () => {
+function addTodo() {
     const text = todoInput.value.trim()
-    if (!text) {
-        alert('Please enter a to-do item.')
-        return
-    }
-
-    // Add a new item to the list
+    if (!text) return
     todos.push({ text, completed: false })
-
     save()
-
     renderTodos()
-
     todoInput.value = ''
+}
+
+inputButton.addEventListener('click', addTodo)
+
+todoInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') addTodo()
 })
 
-// Initial render of existing todos
 renderTodos()

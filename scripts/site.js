@@ -1,5 +1,5 @@
 const key = "It's a secret to everybody."
-localStorage.setItem(key, JSON.stringify('Guess what? Chicken butt.'))
+localStorage.setItem(key, JSON.stringify('Hello, World!'))
 
 const urls = [
     'https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',

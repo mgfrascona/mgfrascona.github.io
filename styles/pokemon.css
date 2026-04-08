@@ -39,7 +39,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh - 120px);
+    height: 95.5vh;
     margin: 0;
     padding: 20px 30px;
     background: radial-gradient(ellipse at center, rgb(211, 242, 255) 0%, rgb(201, 9, 9) 70%);
@@ -49,8 +49,9 @@
 /* Back button */
 .back-button {
     position: absolute;
-    top: 20px;
+    top: 100px;
     left: 20px;
+    z-index: 1001;
     background-color: rgb(35, 31, 132);
     color: white;
     font-weight: bold;
@@ -60,6 +61,7 @@
     border-radius: 25px;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
 }
 
 .back-button:hover {
