@@ -1,0 +1,364 @@
+/* Animations */
+@keyframes buttonHover {
+  0% {
+    background-color: var(--white);
+  }
+  100% {
+    background-color: var(--navBlue);
+  }
+}
+
+@keyframes sectionHover {
+  0% {
+    font-size: medium;
+  }
+  100% {
+    font-size: x-large;
+  }
+}
+
+@keyframes sectionUnhover {
+  0% {
+    font-size: x-large;
+  }
+  100% {
+    font-size: medium;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes websiteFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Styles */
+
+body {
+    animation: websiteFadeIn 0.5s ease-in;
+}
+
+:root {
+    --navBlue: #3048A1;
+    --white: #FFFFFF;
+    --accent-color: #A8A8A8;
+}
+
+button {
+    background: rgb(0, 195, 42);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    animation: sectionUnhover 0.3s forwards;
+}
+
+section button {
+    background: rgb(0, 195, 42);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 20px 30px;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(0, 150, 32);
+    animation: sectionHover 0.3s forwards;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h4 {
+    margin: 0 15px;
+    color: var(--white);
+}
+
+#topBar, footer {
+    background-color: var(--navBlue);
+    color: white;
+}
+
+#topBar {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+a img {
+    height: 62px;
+    line-height: 60px;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid var(--accent-color);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav ul li {
+    margin: 0;
+    width: 250px;
+    text-align: center;
+    border-right: none;
+    border-left: 1px solid black;
+    height: 67px;
+    line-height: 70px;
+    font-weight: bold;
+}
+
+nav ul li:hover {
+    background-color: var(--navBlue);
+    cursor: pointer;
+    animation: buttonHover 0.3s forwards;
+}
+
+nav ul li:hover a {
+    color: white;
+}
+
+nav ul li:last-child {
+    border-right: 1px solid black;
+}
+
+ul li {
+    list-style: none;
+}
+
+h1 {
+    color: var(--white);
+    background-color: var(--navBlue);
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 10px 0;
+}
+
+main #banner, #bannerBusiness, #bannerAccounting, #bannerCFO, #bannerOurCompany {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/SaultSteMarie.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#bannerOurCompany {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/ourcompany.jpg');
+    height: 100px;
+}
+
+#bannerBusiness {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/business.jpg');
+}
+
+#bannerBusiness {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/business.jpg');
+}
+
+#bannerAccounting {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/accounting.jpg');
+}
+
+#bannerCFO {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/cfo.jpg');
+}
+
+main #banner h2  {
+    text-align: center;
+    animation: slideIn 1s ease-in-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+section div h2, h5 {
+    color: var(--white);
+    background-color: none;
+}
+
+.services article {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+aside {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    width: 20%;
+}
+
+.aboutUs aside {
+    width: 80%;
+}
+
+.serviceCard {
+    text-align: center;
+    margin: 20px;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--navBlue);
+    animation: sectionUnhover 0.3s forwards;
+}
+
+.serviceCard:hover {
+    cursor: pointer;
+    animation: sectionHover 0.3s forwards;
+}
+
+h2 {
+    margin-bottom: 0;
+    text-align: center;
+    color: var(--white);
+}
+
+h5 {
+    margin-top: 10px;
+}
+
+nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+section .serviceSection {
+    text-align: center;
+    margin-top: 0;
+    padding: 20px;
+    height: 300px;
+    padding-top: 120px;
+}
+
+section .serviceSection:first-of-type {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/service1home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+section .serviceSection:nth-of-type(2) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/service2home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+section .serviceSection:last-of-type {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/service3home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+section .serviceSection:hover, section .serviceSection:focus {
+    cursor: pointer;
+    animation: sectionHover 0.3s forwards;
+}
+
+section .serviceSection {
+    animation: sectionUnhover 0.3s forwards;
+}
+
+footer {
+    padding: 5px 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+footer ul li {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid black;
+        border-bottom: none;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+    .services article aside {
+        width: 80%;
+    }
+    .services>h2 {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    main>.services>#banner {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+}
