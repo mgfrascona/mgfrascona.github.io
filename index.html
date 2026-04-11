@@ -48,7 +48,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#resumeDownload">Resumé</a></li>
                 <li><a href="#aboutMe">About</a></li> 
-                <li><a href="contact/contact.html">Contact</a></li>
+                <li><a href="#contactForm">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -136,12 +136,23 @@
                 </div>
                 <div class="aboutMeInfo">
                     <h3>About Me</h3>
-                    <p>I'm a web designer and developer with a passion for creating visually stunning and user-friendly websites. With a background in graphic design and a keen eye for aesthetics, I bring a unique blend of creativity and technical expertise to every project I work on. I specialize in crafting responsive and engaging web experiences that not only look great but also function seamlessly across all devices.</p>
+                    <p>I'm a web and UI/UX designer with a passion for creating visually stunning and user-friendly websites. With a background in digital animation and keen attention to detail, I blend creativity and technical skills to every project I work on. I specialize in crafting responsive and engaging web experiences that not only look great but also function seamlessly across all devices.</p>
                 </div>
             </div>
+            <div id="contactForm">
+                <form action="https://formspree.io/f/mjgpnkak" method="POST">
+                    <h4>Contact Me</h4>
+                    <input type="text" name="name" placeholder="*Your name" required>
+                    <input type="text" name="phone" placeholder="Your phone number (optional)">
+                    <input type="email" name="email" placeholder="*Your email address" required>
+                    <input type="text" name="subject" placeholder="*Subject" required>
+                    <textarea name="message" placeholder="*Your message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
             <div id="resumeDownload">
-                <a href="resume.pdf" download>Download Resumé</a>
-            </div>            
+                <a href="assets/resume-michael-frascona.pdf" download>Download Resumé</a>
+            </div>
         </div>
     </main>
     <footer>

@@ -292,7 +292,7 @@ nav ul li:hover a {
     line-height: 1.5rem;
 }
 
-.skills h3, #projects h3, #resumeDownload h3 {
+.skills h3, #projects h3, #resumeDownload h3, #contactForm h4 {
     text-align: center;
     font-size: 2.5rem;
     font-weight: 1000;
@@ -484,6 +484,86 @@ nav ul li:hover a {
     box-shadow: var(--goldShine) 0 0px 40px;
 }
 
+#contactForm {
+    background-color: var(--goldCard);
+    border: var(--goldRim) 1px solid;
+    color: white;
+    padding: 20px;
+    border-radius: 25px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    position: relative;
+    z-index: 1;
+    width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#contactForm:hover {
+    box-shadow: 0 0px 20px var(--goldShine);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#contactForm h4 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#contactForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#contactForm form input, #contactForm form textarea {
+    padding: 10px;
+    border: var(--goldRim) 1px solid;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'dosis';
+}
+
+#contactForm form textarea {
+    height: 200px;
+    resize: none;
+}
+
+#contactForm form button {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    background-color: var(--favBlue);
+    border-radius: 25px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: auto;
+    margin-left: auto;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-family: 'dosis';
+}
+
+#contactForm form button:hover {
+    background-color: var(--UIGreen);
+    cursor: pointer;
+    box-shadow: 0px 0px 10px var(--glowBlue);
+    animation: navBarButtonHover 0.5s ease-in-out;
+    color: var(--favBlue);
+}
+
+#contactForm form button:active {
+    background-color: var(--favBlue);
+    color: var(--UIGreen);
+    box-shadow: none;
+}
+
 #resumeDownload {
     width: 1000px;
     height: 300px;
@@ -567,6 +647,11 @@ nav ul li:hover a {
         height: 200px;
         margin-right: auto;
         margin-left: auto;
+    }
+    #contactForm {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -665,5 +750,10 @@ nav ul li:hover a {
         height: 500px;
         margin-right: auto;
         margin-left: auto;
+    }
+    #contactForm {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
