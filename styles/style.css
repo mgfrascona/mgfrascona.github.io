@@ -46,9 +46,11 @@
 :root {
     --UIGreen: rgb(76, 198, 88);
     --favBlue: rgb(13, 27, 75);
-    --goldText: rgb(255, 230, 121);
+    --goldRim: rgb(255, 225, 0);
     --goldCard: rgb(170, 137, 30);
+    --goldShine: rgb(255, 232, 141);
     --glowBlue: rgb(125, 155, 255);
+    --blackShadow: rgba(0, 0, 0, 0.8);
 }
 
 body {
@@ -59,7 +61,8 @@ body {
 }
 
 header {
-    background-color: none;
+    background-color: rgba(0, 167, 239, 0.3);
+    border-bottom: 1px solid var(--UIGreen);
     padding: 0px;
     color: var(--favBlue);
     display: flex;
@@ -168,6 +171,14 @@ nav ul li:hover a {
     color: var(--UIGreen);
 }
 
+.hamburgerIcon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
 #welcome {
     color: white;
     font-weight: 700;
@@ -188,7 +199,7 @@ nav ul li:hover a {
     box-sizing: border-box;
 }
 
-#hero-canvas {
+#heroCanvas {
     position: fixed;
     top: 0;
     left: 0;
@@ -198,15 +209,15 @@ nav ul li:hover a {
     z-index: 0;
 }
 
-#hero-canvas:hover {
+#heroCanvas:hover {
     cursor: grab;
 }
 
-#hero-canvas:active {
+#heroCanvas:active {
     cursor: grabbing;
 }
 
-.hero .hero-content {
+.hero .heroContent {
     position: relative;
     z-index: 1;
     display: flex;
@@ -242,7 +253,7 @@ nav ul li:hover a {
     margin-right: 15px;
     border: 2px solid var(--favBlue);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px var(--blackShadow);
     display: inline-block;
 }
 
@@ -254,7 +265,7 @@ nav ul li:hover a {
     margin-top: 10px;
 }
 
-.missionStatement {
+.missionStatement, #aboutMe {
     color: white;
     background-color: rgb(76, 198, 88, 0.8);
     animation: h2Shadows 3s ease-in-out infinite;
@@ -267,20 +278,21 @@ nav ul li:hover a {
     margin-right: auto;
     margin-bottom: 100px;
     position: relative;
+    line-height: 2rem;
     z-index: 0;
 }
 
-.missionStatement h3 {
+.missionStatement h3, #aboutMe h3 {
     margin-top: 0;
     font-size: 2.5rem;
 }
 
-.missionStatement p {
+.missionStatement p, #aboutMe p {
     font-size: 1.5rem;
     line-height: 1.5rem;
 }
 
-.skills h3, .projects h3, .resumeDownload h3 {
+.skills h3, #projects h3, #resumeDownload h3 {
     text-align: center;
     font-size: 2.5rem;
     font-weight: 1000;
@@ -312,14 +324,15 @@ nav ul li:hover a {
     width: 250px;
     text-align: center;
     background-color: var(--goldCard);
+    border: 1px solid var(--goldRim);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .skillsCard:hover {
     transform: translateY(-25px);
-    box-shadow: 0 0px 20px var(--glowBlue);
+    box-shadow: 0 0px 20px var(--goldShine);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    background-color: var(--goldText);
+    background-color: var(--goldShine);
     color: black;
 }
 
@@ -328,14 +341,14 @@ nav ul li:hover a {
     padding-left: 0;
 }
 
-.skillsCard, .projectBox, .resumeDownload, footer {
+.skillsCard, .projectBox, #resumeDownload, footer {
     position: relative;
     z-index: 1;
     color: white;
     border-radius: 25px;
     padding: 20px;
     margin: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 15px var(--blackShadow);
 }
 
 .projectBox {
@@ -344,6 +357,7 @@ nav ul li:hover a {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     text-align: center;
     align-content: center;
+    border: 1px solid var(--goldRim)
 }
 
 .projectBox h4 {
@@ -361,6 +375,12 @@ nav ul li:hover a {
     background-image: url("../assets/images/lori_langendorf_screenshot.png");
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/lori_langendorf_screenshot.png');
     background-position: -10px -150px;
+}
+
+.projectBox:nth-of-type(2) {
+    background-image: url("../assets/images/avalon_adventures_screenshot.png");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/avalon_adventures_screenshot.png');
+    background-size: cover;
 }
 
 .projectBox:nth-of-type(3) {
@@ -429,6 +449,7 @@ nav ul li:hover a {
 .projectsGallery {
     display: flex;
     margin-top: 20px;
+    margin-bottom: 80px;
     align-items: top;
     justify-content: center;
     flex-wrap: wrap;
@@ -436,29 +457,58 @@ nav ul li:hover a {
     margin-right: auto;
 }
 
-.resumeDownload {
-    width: 1400px;
-    height: 150px;
+#aboutMe {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+#aboutMe p {
+    line-height: 2rem;
+}
+
+#aboutMe .profilePic img{
+    border-radius: 300px;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: var(--goldRim) 1px solid;
+    box-shadow: var(--blackShadow) 0 4px 15px;
+}
+
+#aboutMe .profilePic img:hover {
+    transform: scale(1.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: var(--goldShine) 0 0px 40px;
+}
+
+#resumeDownload {
+    width: 1000px;
+    height: 300px;
     margin-left: auto;
     margin-right: auto;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-image: url("../assets/images/resume_screenshot.png");
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/resume_screenshot.png');
     background-size: cover;
+    background-position: -70px -50px;
+    border: 1px solid var(--goldRim)
 }
 
-.resumeDownload:hover {
+#resumeDownload:hover {
     box-shadow: 0 0px 20px var(--glowBlue);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     background-color: transparent;
     color: white;
 }
 
-.resumeDownload a {
+#resumeDownload a {
     margin: 0;
     width: 200px;
     text-align: center;
@@ -475,7 +525,7 @@ nav ul li:hover a {
     font-size: 1rem;
 }
 
-.resumeDownload a:hover {
+#resumeDownload a:hover {
     background-color: var(--favBlue);
     cursor: pointer;
     box-shadow: 0px 0px 10px var(--glowBlue);
@@ -483,25 +533,98 @@ nav ul li:hover a {
     color: var(--UIGreen);
 }
 
-.resumeDownload a:active {
+#resumeDownload a:active {
     background-color: var(--UIGreen);
     color: var(--favBlue);
     box-shadow: none;
 }
 
+@media (max-width: 1200px) {
+    .missionStatement, #aboutMe {
+        width: 80%;
+        padding: 30px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    #resumeDownload {
+        width: 80%;
+        height: 120px;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .hero .heroContent {
+        flex-direction: column;
+        text-align: center;
+    }
+    .skillsSection {
+        flex-direction: column;
+        align-items: center;
+    }
+    #resumeDownload {
+        width: 80%;
+        height: 200px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
         gap: 5px;
         padding: 10px;
+        background-color: var(--favBlue);
+        flex-direction: column;
+    }
+    .headerMain {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
     }
     nav ul {
         flex-direction: column;
         align-items: center;
+        padding-bottom: 30px;
+        display: none;
     }
     nav ul li {
-        width: 150px;
-        margin: 5px 0;
+        width: 400px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hamburgerIcon {
+        display: flex;
+        height: 50px;
+        width: 50px;
+        background-color: var(--UIGreen);
+        margin-left: auto;
+    }
+    .hamburgerIcon:hover {
+        background-color: var(--favBlue);
+        cursor: pointer;
+        box-shadow: 0px 0px 10px var(--glowBlue);
+    }
+    .hamburgerIcon:hover span {
+        background-color: var(--UIGreen);
+    }
+    .hamburgerIcon span {
+        display: block;
+        height: 5px;
+        width: 50px;
+        background-color: var(--favBlue);
+        margin: 8.5px auto;
+        transition: all 0.3s ease;
+    }
+    .hero .heroContent {
+        flex-direction: column;
+        text-align: center;
+    }
+    #heroCanvas:hover {
+        cursor: default;
     }
     .missionStatement {
         width: 80%;
@@ -519,5 +642,28 @@ nav ul li:hover a {
         margin-left: auto;
         margin-right: auto;
         font-size: larger;
+    }
+    .missionStatement {
+        width: 80%;
+        padding: 30px;
+        padding-left: 50px;
+        padding-right: 50px;
+        text-align: center;
+    }
+    #aboutMe {
+        flex-direction: column;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+            padding: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+    }
+    #resumeDownload {
+        width: 80%;
+        height: 500px;
+        margin-right: auto;
+        margin-left: auto;
     }
 }
