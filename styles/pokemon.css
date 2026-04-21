@@ -1,189 +1,236 @@
-/* "Who's that Pokemon?" - full page canvas */
+/* =============================================
+   WHO'S THAT POKEMON — pokemon.css
+   Flashy but professional
+   ============================================= */
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
 @keyframes headerPopsOut {
-    0% {
-        transform: scale(0.5) rotate(0deg);
-        opacity: 0;
-    }
-    25% {
-        transform: scale(1.5) rotate(25deg);
-        opacity: 1;
-    }
-    33% {
-        transform: scale(1) rotate(-13deg);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(0.5) rotate(-25deg);
-        opacity: 1;
-    }
-    66% {
-        transform: scale(1.5) rotate(15deg);
-        opacity: 1;
-    }
-    75% {
-        transform: scale(1) rotate(14deg);
-        opacity: 1;
-    }
-    90% {
-        transform: scale(0.5) rotate(-25deg);
-        opacity: 1;
-    }
+    0%   { transform: scale(0.4) rotate(-8deg); opacity: 0; }
+    40%  { transform: scale(1.12) rotate(4deg); opacity: 1; }
+    65%  { transform: scale(0.96) rotate(-2deg); opacity: 1; }
+    80%  { transform: scale(1.04) rotate(1deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes pokemonReveal {
+    0%   { filter: brightness(0); transform: scale(1.08); }
+    40%  { filter: brightness(2); transform: scale(1.04); }
     100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 1;
+        filter: brightness(1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+        transform: scale(1);
     }
 }
 
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 12px rgba(255, 255, 100, 0.3); }
+    50%       { box-shadow: 0 0 28px rgba(255, 255, 100, 0.7); }
+}
+
+/* =============================================
+   MAIN LAYOUT
+   ============================================= */
 .pokemon-main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 95.5vh;
-    margin: 0;
-    padding: 20px 30px;
-    background: radial-gradient(ellipse at center, rgb(211, 242, 255) 0%, rgb(201, 9, 9) 70%);
+    min-height: calc(100vh - 100px);
+    padding: 40px 30px 60px;
+    background:
+        radial-gradient(ellipse 55% 65% at 50% 45%,
+            rgba(230, 248, 255, 0.95) 0%,
+            rgba(180, 210, 255, 0.6) 30%,
+            rgba(180, 20, 20, 0.85) 65%,
+            rgb(140, 5, 5) 100%
+        );
     position: relative;
+    gap: 12px;
 }
 
-/* Back button */
+.pokemon-main > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* =============================================
+   BACK BUTTON
+   ============================================= */
 .back-button {
     position: absolute;
-    top: 100px;
-    left: 20px;
-    z-index: 1001;
-    background-color: rgb(35, 31, 132);
+    top: 24px;
+    left: 28px;
+    z-index: 10;
+    background: rgba(35, 31, 132, 0.85);
+    backdrop-filter: blur(8px);
     color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
     text-decoration: none;
-    padding: 14px 28px;
+    padding: 10px 22px;
     border-radius: 25px;
+    border: 1px solid rgba(255,255,255,0.15);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    letter-spacing: 0.04em;
 }
 
 .back-button:hover {
-    background-color: yellow;
-    color: rgb(220, 0, 0);
-    border: 2px solid black;
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+    background: rgba(50, 45, 180, 0.95);
+    border-color: rgba(255,255,255,0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    color: white;
 }
 
 .back-button:active {
-    transform: translateY(-1px) scale(0.98);
-    background-color: black;
-    color: var(--UIGreen);
-    border: 2px solid var(--UIGreen);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    transform: translateY(0) scale(0.98);
 }
 
-/* Header */
+/* =============================================
+   HEADER TEXT
+   ============================================= */
 #pokemonHeader {
-    color: rgb(255, 255, 94);
-    text-shadow: 0 0 10px rgba(56, 125, 255, 0.8);
-    font-size: 3rem;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    animation: headerPopsOut 0.6s ease-out;
     font-family: 'Titan One', cursive;
-}
-
-#pokemonName {
-    text-transform: capitalize;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: rgb(255, 240, 60);
     text-align: center;
+    margin: 0;
+    line-height: 1.15;
+    text-shadow:
+        0 0 8px rgba(255, 200, 0, 0.7),
+        0 0 24px rgba(255, 160, 0, 0.4),
+        2px 3px 0 rgba(180, 100, 0, 0.6),
+        3px 5px 12px rgba(0, 0, 0, 0.5);
+    animation: headerPopsOut 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    letter-spacing: 0.02em;
 }
 
-/* Pokemon image */
+/* =============================================
+   POKEMON IMAGE AREA
+   ============================================= */
 #image {
-    text-align: center;
-    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
 }
 
 #image img {
-    width: 350px;
-    max-width: 80vw;
+    width: 300px;
+    max-width: 72vw;
     cursor: pointer;
     transition: filter 0.6s ease, transform 0.3s ease;
 }
 
 #image img.silhouette {
-    filter: brightness(0);
+    filter: brightness(0) drop-shadow(0 6px 16px rgba(0,0,0,0.5));
 }
 
 #image img.silhouette:hover {
-    transform: scale(1.05);
+    transform: scale(1.06) translateY(-4px);
+    filter: brightness(0) drop-shadow(0 10px 24px rgba(0,0,0,0.6));
 }
 
 #image img.revealed {
-    filter: brightness(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
-    animation: pokemonReveal 0.6s ease-out;
+    filter: brightness(1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.55));
+    animation: pokemonReveal 0.55s ease-out forwards;
 }
 
-/* New Pokemon button */
+#pokemonName {
+    font-family: 'Audiowide', monospace;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: white;
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.8),
+        0 2px 8px rgba(0,0,0,0.6);
+    min-height: 2rem;
+    animation: fadeSlideUp 0.4s ease forwards;
+    letter-spacing: 0.08em;
+}
+
+/* =============================================
+   HINT TEXT
+   ============================================= */
+.hint {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.88rem;
+    font-style: italic;
+    font-family: 'Dosis', sans-serif;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+/* =============================================
+   NEW POKEMON BUTTON
+   ============================================= */
 #newPokemon {
     display: block;
-    margin-top: 10px;
-    background-color: rgb(35, 31, 132);
+    margin-top: 4px;
+    background: rgba(35, 31, 132, 0.9);
+    backdrop-filter: blur(8px);
     color: white;
-    font-weight: bold;
-    border: 2px solid rgb(35, 31, 132);
-    padding: 25px 40px;
-    border-radius: 25px;
+    font-family: 'Titan One', cursive;
+    font-weight: 400;
+    border: 2px solid rgba(255, 255, 100, 0.5);
+    padding: 16px 44px;
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    animation: pulseGlow 2.5s ease-in-out infinite;
 }
 
 #newPokemon:hover {
-    background-color: yellow;
-    color: rgb(220, 0, 0);
-    border: 2px solid black;
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+    background: rgba(255, 230, 0, 0.92);
+    color: rgb(35, 31, 132);
+    border-color: rgba(35, 31, 132, 0.6);
+    transform: translateY(-3px) scale(1.04);
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.45),
+        0 0 24px rgba(255, 220, 0, 0.5);
+    animation: none;
 }
 
 #newPokemon:active {
     transform: translateY(-1px) scale(0.98);
-    background-color: black;
-    color: var(--UIGreen);
-    border: 2px solid var(--UIGreen);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    background: rgba(200, 180, 0, 0.95);
 }
 
-/* Reveal animation */
-@keyframes pokemonReveal {
-    0% {
-        filter: brightness(0);
-        transform: scale(1.1);
-    }
-    50% {
-        filter: brightness(1.5);
-    }
-    100% {
-        filter: brightness(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
-        transform: scale(1);
-    }
-}
-
-.hint {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    margin-top: 0;
-    font-style: italic;
-}
-
+/* =============================================
+   RESPONSIVE
+   ============================================= */
 @media (max-width: 768px) {
     #pokemonHeader {
-        font-size: 2rem;
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
     }
 
     .back-button {
-        font-size: 1rem;
-        padding: 10px 20px;
+        font-size: 0.88rem;
+        padding: 8px 16px;
+        top: 16px;
+        left: 16px;
+    }
+
+    #image img {
+        width: 240px;
+    }
+
+    #newPokemon {
+        padding: 14px 36px;
+        font-size: 0.95rem;
     }
 }

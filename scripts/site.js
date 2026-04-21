@@ -6,8 +6,8 @@ const navMenu = document.querySelector('nav ul');
 
 if (window.innerWidth < 768) {
     hamburgerIcon.addEventListener('click', () => {
-        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-    });
+        navMenu.classList.toggle('open')
+    })
 } else {
-        navMenu.style.display = 'flex';
+    navMenu.classList.remove('open')
 }

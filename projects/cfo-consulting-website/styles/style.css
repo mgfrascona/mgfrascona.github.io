@@ -1,364 +1,678 @@
-/* Animations */
-@keyframes buttonHover {
-  0% {
-    background-color: var(--white);
-  }
-  100% {
-    background-color: var(--navBlue);
-  }
+/* =============================================
+   LORI LANGENDORF, CPA — STYLESHEET
+   Refined professional polish, original palette kept
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* =============================================
+   CSS VARIABLES
+   ============================================= */
+:root {
+    --navBlue:      #3048A1;
+    --navBlue-dark: #1e2f6b;
+    --navBlue-light:#4a62c4;
+    --white:        #ffffff;
+    --off-white:    #f8f9fc;
+    --accent-color: #d0d5e8;
+    --green:        rgb(0, 195, 42);
+    --green-dark:   rgb(0, 150, 32);
+    --green-glow:   rgba(0, 195, 42, 0.2);
+    --text-dark:    #1a1f36;
+    --text-mid:     #4a5068;
+    --text-light:   #8892b0;
+    --shadow-sm:    0 2px 8px rgba(48, 72, 161, 0.12);
+    --shadow-md:    0 6px 24px rgba(48, 72, 161, 0.18);
+    --shadow-lg:    0 16px 48px rgba(48, 72, 161, 0.22);
+    --radius:       10px;
+    --radius-sm:    6px;
+    --transition:   all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-@keyframes sectionHover {
-  0% {
-    font-size: medium;
-  }
-  100% {
-    font-size: x-large;
-  }
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-@keyframes sectionUnhover {
-  0% {
-    font-size: x-large;
-  }
-  100% {
-    font-size: medium;
-  }
+html {
+    scroll-behavior: smooth;
 }
-
-@keyframes slideIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes websiteFadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Styles */
 
 body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: var(--off-white);
+    color: var(--text-dark);
+    line-height: 1.7;
     animation: websiteFadeIn 0.5s ease-in;
 }
 
-:root {
-    --navBlue: #3048A1;
-    --white: #FFFFFF;
-    --accent-color: #A8A8A8;
-}
-
-button {
-    background: rgb(0, 195, 42);
-    border: none;
-    border-radius: 10px;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    animation: sectionUnhover 0.3s forwards;
-}
-
-section button {
-    background: rgb(0, 195, 42);
-    border: none;
-    border-radius: 10px;
-    color: white;
-    padding: 20px 30px;
-    margin: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background: rgb(0, 150, 32);
-    animation: sectionHover 0.3s forwards;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-h4 {
-    margin: 0 15px;
-    color: var(--white);
-}
-
-#topBar, footer {
-    background-color: var(--navBlue);
-    color: white;
-}
-
-#topBar {
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-}
-
-a img {
-    height: 62px;
-    line-height: 60px;
-}
-
-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-nav {
-    display: flex;
-    flex-direction: row;
-    border-bottom: 2px solid var(--accent-color);
-    margin-left: auto;
-    margin-right: auto;
-}
-
-nav ul li {
-    margin: 0;
-    width: 250px;
-    text-align: center;
-    border-right: none;
-    border-left: 1px solid black;
-    height: 67px;
-    line-height: 70px;
-    font-weight: bold;
-}
-
-nav ul li:hover {
-    background-color: var(--navBlue);
-    cursor: pointer;
-    animation: buttonHover 0.3s forwards;
-}
-
-nav ul li:hover a {
-    color: white;
-}
-
-nav ul li:last-child {
-    border-right: 1px solid black;
+@keyframes websiteFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 ul li {
     list-style: none;
 }
 
-h1 {
-    color: var(--white);
-    background-color: var(--navBlue);
-    text-align: center;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding: 10px 0;
+a {
+    text-decoration: none;
+    transition: var(--transition);
 }
 
-main #banner, #bannerBusiness, #bannerAccounting, #bannerCFO, #bannerOurCompany {
-    width: 100%;
-    height: 400px;
+h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    line-height: 1.25;
+}
+
+/* =============================================
+   TOP BAR
+   ============================================= */
+#topBar {
+    background: linear-gradient(90deg, var(--navBlue-dark), var(--navBlue));
+    color: var(--white);
     display: flex;
-    margin: auto;
+    align-items: center;
+    padding: 8px 40px;
+    gap: 24px;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#topBar h4 {
+    margin: 0;
+    color: rgba(255,255,255,0.85);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.88rem;
+}
+
+#topBar h4::before {
+    margin-right: 6px;
+    opacity: 0.6;
+}
+
+#topBar button {
+    background: var(--green);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 8px 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.03em;
+    box-shadow: 0 2px 8px var(--green-glow);
+    animation: none;
+    margin: 0;
+}
+
+#topBar button:hover {
+    background: var(--green-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px var(--green-glow);
+    animation: none;
+}
+
+/* =============================================
+   NAV
+   ============================================= */
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background-color: var(--white);
+    border-bottom: 2px solid var(--accent-color);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a img {
+    height: 62px;
+    display: block;
+    padding: 4px 20px;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+}
+
+nav ul li {
+    margin: 0;
+    width: 200px;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    position: relative;
+    transition: var(--transition);
+}
+
+nav ul li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--navBlue);
+    border-radius: 2px 2px 0 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li:hover::after {
+    width: 60%;
+}
+
+nav ul li:hover {
+    background-color: var(--off-white);
+    cursor: pointer;
+}
+
+nav ul li a {
+    color: var(--text-dark);
+    display: block;
+    height: 100%;
+    padding: 0 16px;
+    transition: var(--transition);
+}
+
+nav ul li:hover a {
+    color: var(--navBlue);
+}
+
+/* =============================================
+   HERO BANNER (home page)
+   ============================================= */
+main #banner {
+    width: 100%;
+    height: 440px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/SaultSteMarie.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                      url('../images/SaultSteMarie.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
 }
 
+main #banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    pointer-events: none;
+}
+
+main #banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+    max-width: 720px;
+    padding: 0 40px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    animation: slideIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    line-height: 1.4;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================================
+   INNER PAGE BANNERS
+   ============================================= */
+#bannerBusiness,
+#bannerAccounting,
+#bannerCFO,
 #bannerOurCompany {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/ourcompany.jpg');
-    height: 100px;
+    width: 100%;
+    height: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white);
 }
 
 #bannerBusiness {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/business.jpg');
-}
-
-#bannerBusiness {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/business.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                      url('../images/business.jpg');
 }
 
 #bannerAccounting {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/accounting.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                      url('../images/accounting.jpg');
 }
 
 #bannerCFO {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/cfo.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                      url('../images/cfo.jpg');
 }
 
-main #banner h2  {
-    text-align: center;
-    animation: slideIn 1s ease-in-out;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-    opacity: 0;
+#bannerOurCompany {
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                      url('../images/ourcompany.jpg');
+    height: 180px;
 }
 
-section div h2, h5 {
+#bannerBusiness h2,
+#bannerAccounting h2,
+#bannerCFO h2,
+#bannerOurCompany h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+    font-weight: 700;
     color: var(--white);
-    background-color: none;
+    text-align: center;
+    max-width: 680px;
+    padding: 0 40px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    line-height: 1.4;
 }
 
-.services article {
+/* =============================================
+   SERVICES SECTION TITLE
+   ============================================= */
+.services > h1 {
+    background: linear-gradient(90deg, var(--navBlue-dark), var(--navBlue));
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 18px 0;
+    margin: 0;
+    letter-spacing: 0.04em;
+}
+
+/* =============================================
+   HOME PAGE SERVICE SECTIONS
+   ============================================= */
+section {
     display: flex;
-    justify-content: center;
-    align-items: top;
-    text-align: center;
     flex-wrap: wrap;
-    flex-direction: row;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-aside {
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-    width: 20%;
-}
-
-.aboutUs aside {
-    width: 80%;
-}
-
-.serviceCard {
-    text-align: center;
-    margin: 20px;
-    padding: 50px;
-    border-radius: 20px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: var(--navBlue);
-    animation: sectionUnhover 0.3s forwards;
-}
-
-.serviceCard:hover {
-    cursor: pointer;
-    animation: sectionHover 0.3s forwards;
-}
-
-h2 {
-    margin-bottom: 0;
-    text-align: center;
-    color: var(--white);
-}
-
-h5 {
-    margin-top: 10px;
-}
-
-nav ul li a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
 }
 
 section .serviceSection {
+    flex: 1;
+    min-width: 280px;
     text-align: center;
-    margin-top: 0;
-    padding: 20px;
-    height: 300px;
-    padding-top: 120px;
+    padding: 0;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+section .serviceSection::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(30, 47, 107, 0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+    transition: var(--transition);
+    z-index: 1;
+}
+
+section .serviceSection:hover::before {
+    background: linear-gradient(to top, rgba(30, 47, 107, 0.92) 0%, rgba(0,0,0,0.35) 60%, transparent 100%);
+}
+
+section .serviceSection > * {
+    position: relative;
+    z-index: 2;
 }
 
 section .serviceSection:first-of-type {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/service1home.jpg');
-    background-repeat: no-repeat;
+    background-image: url('../images/service1home.jpg');
     background-size: cover;
     background-position: center;
 }
 
 section .serviceSection:nth-of-type(2) {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/service2home.jpg');
-    background-repeat: no-repeat;
+    background-image: url('../images/service2home.jpg');
     background-size: cover;
     background-position: center;
 }
 
 section .serviceSection:last-of-type {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/service3home.jpg');
-    background-repeat: no-repeat;
+    background-image: url('../images/service3home.jpg');
     background-size: cover;
     background-position: center;
 }
 
-section .serviceSection:hover, section .serviceSection:focus {
+section .serviceSection:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+section div h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    background: none;
+    margin-bottom: 8px;
+    padding: 0 20px;
+}
+
+section div h5 {
+    color: rgba(255,255,255,0.85);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.92rem;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+section .serviceSection button {
+    align-self: center;
+    background: var(--green);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 12px 28px;
+    font-weight: 600;
+    font-size: 0.92rem;
     cursor: pointer;
-    animation: sectionHover 0.3s forwards;
+    transition: var(--transition);
+    animation: none;
+    margin: 0;
+    letter-spacing: 0.03em;
+    box-shadow: 0 4px 14px var(--green-glow);
+    width: fit-content;
 }
 
-section .serviceSection {
-    animation: sectionUnhover 0.3s forwards;
+section .serviceSection button:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--green-glow);
+    animation: none;
 }
 
-footer {
-    padding: 5px 0;
-    margin-bottom: 0;
+/* =============================================
+   ARTICLE / ASIDE (inner pages)
+   ============================================= */
+.services article {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 88%;
+    margin: 48px auto;
+    gap: 24px;
+}
+
+aside {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 32px 28px;
+    width: calc(33% - 16px);
+    min-width: 260px;
+    border-top: 4px solid var(--navBlue);
+    transition: var(--transition);
+}
+
+aside:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+aside h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navBlue);
+    margin-bottom: 14px;
+}
+
+aside p {
+    color: var(--text-mid);
+    font-size: 0.92rem;
+    line-height: 1.8;
+}
+
+.aboutUs aside {
+    width: 88%;
+    border-top: 4px solid var(--navBlue);
+}
+
+.aboutUs aside p {
+    margin-bottom: 16px;
+}
+
+/* =============================================
+   SERVICE CARDS (inner pages)
+   ============================================= */
+#banner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 48px 40px;
+    background: linear-gradient(135deg, var(--navBlue-dark) 0%, var(--navBlue) 100%);
+}
+
+.serviceCard {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius);
     text-align: center;
+    padding: 40px 36px;
+    min-width: 220px;
+    max-width: 300px;
+    flex: 1;
+    cursor: pointer;
+    transition: var(--transition);
+    animation: none;
+}
+
+.serviceCard:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    animation: none;
+}
+
+.serviceCard h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 8px 0;
+    line-height: 1.35;
+}
+
+.serviceCard h5 {
+    color: rgba(255,255,255,0.7);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+}
+
+.serviceCard button {
+    background: var(--green);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 10px 24px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: var(--transition);
+    animation: none;
+    margin: 0;
+    letter-spacing: 0.03em;
+}
+
+.serviceCard button:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px var(--green-glow);
+    animation: none;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+    background: linear-gradient(90deg, var(--navBlue-dark), var(--navBlue));
+    color: var(--white);
+    padding: 40px 40px 24px;
+    margin: 0;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
 }
 
 footer ul li {
-    font-weight: bold;
-    padding-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 footer ul li a {
-    color: white;
-    text-decoration: none;
+    color: rgba(255,255,255,0.8);
+    transition: var(--transition);
+    position: relative;
+    padding-bottom: 4px;
+}
+
+footer ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--green);
+    border-radius: 1px;
+    transition: width 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: var(--white);
+}
+
+footer ul li a:hover::after {
+    width: 100%;
+}
+
+footer p {
+    text-align: center;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 20px;
+    margin-top: 0;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+    aside {
+        width: calc(50% - 12px);
+    }
 }
 
 @media (max-width: 768px) {
+    #topBar {
+        padding: 8px 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
     nav {
         flex-direction: column;
         align-items: center;
+        position: relative;
     }
-    
+
     nav ul {
         flex-direction: column;
         align-items: center;
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0;
     }
 
     nav ul li {
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        border: 1px solid black;
-        border-bottom: none;
+        border-bottom: 1px solid var(--accent-color);
     }
 
-    nav ul li:last-child {
-        border-bottom: none;
+    nav ul li::after {
+        display: none;
     }
-    .services article aside {
-        width: 80%;
-    }
-    .services>h2 {
-        margin-left: 50px;
-        margin-right: 50px;
-    }
-    main>.services>#banner {
-        display: flex;
+
+    section {
         flex-direction: column;
-        height: auto;
+    }
+
+    section .serviceSection {
+        height: 280px;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    .services article {
+        width: 92%;
+        margin: 32px auto;
+    }
+
+    footer ul {
+        gap: 24px;
     }
 }

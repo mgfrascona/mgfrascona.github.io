@@ -14,6 +14,9 @@ function loadPokemon() {
     revealed = false;
     pokemonHeader.textContent = "Who's that Pokemon?";
     pokemonName.textContent = '';
+    pokemonName.style.animation = 'none'
+    pokemonName.offsetHeight // force reflow
+    pokemonName.style.animation = ''
     pokemonImg.classList.remove('revealed');
     pokemonImg.classList.add('silhouette');
     pokemonImg.src = '';

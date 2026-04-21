@@ -1,206 +1,331 @@
-/* Animations */
-@keyframes websiteFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+/* =============================================
+   MICHAEL FRASCONA — PORTFOLIO STYLESHEET
+   ============================================= */
 
-@keyframes h2FadeIn {
-    0% {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    50% {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
 
-@keyframes h2Shadows {
-    0% {
-        text-shadow: 0 0 5px var(--glowBlue);
-    }
-    50% {
-        text-shadow: 0 0 20px var(--glowBlue);
-    }
-    100% {
-        text-shadow: 0 0 5px var(--glowBlue);
-    }
-}
-
-@keyframes navBarButtonHover {
-    0% {
-        box-shadow: 0px 0px 10px var(--glowBlue);
-    }
-    50% {
-        box-shadow: 0px 0px 20px var(--glowBlue);
-    }
-    100% {
-        box-shadow: 0px 0px 10px var(--glowBlue);
-    }
-}
-
+/* =============================================
+   CSS VARIABLES
+   ============================================= */
 :root {
-    --UIGreen: rgb(76, 198, 88);
-    --favBlue: rgb(13, 27, 75);
-    --goldRim: rgb(255, 225, 0);
-    --goldCard: rgb(170, 137, 30);
-    --goldShine: rgb(255, 232, 141);
-    --glowBlue: rgb(125, 155, 255);
-    --blackShadow: rgba(0, 0, 0, 0.8);
+    --blue:        #3858c4;
+    --blue-dark:   #1a2e7a;
+    --blue-deeper: #0d1b4b;
+    --blue-navy:   #050a1a;
+    --green:       #4cc658;
+    --green-glow:  rgba(76, 198, 88, 0.25);
+    --gold:        #f0c040;
+    --gold-light:  #f7d97a;
+    --gold-dark:   #c8960a;
+    --gold-glow:   rgba(240, 192, 64, 0.3);
+    --white:       #ffffff;
+    --text-light:  #c8d4f0;
+    --text-muted:  #7a90c4;
+    --card-bg:     rgba(255, 255, 255, 0.04);
+    --card-border: rgba(255, 255, 255, 0.09);
+    --header-h:    80px;
+    --radius:      12px;
+    --radius-sm:   8px;
+    --transition:  all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--favBlue);
-    font-family: 'dosis';
-    margin: 0;
-    animation: websiteFadeIn 0.3s ease-in;
+    background-color: var(--blue-navy);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-light);
+    overflow-x: hidden;
+    animation: pageFadeIn 0.4s ease-in;
 }
 
-header {
-    background-color: rgba(0, 167, 239, 0.3);
-    border-bottom: 1px solid var(--UIGreen);
-    padding: 0px;
-    color: var(--favBlue);
+@keyframes pageFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes heroLineIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-8px);
+    }
+    80% {
+        transform: translateY(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--white);
+}
+
+a {
+    color: var(--green);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--white);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =============================================
+   TECHNO GRID BACKGROUND
+   Applied to infoSection so the hero stays pure
+   ============================================= */
+.infoSection {
+    position: relative;
+    background-color: var(--blue-navy);
+    /* Layered: animated circuit dots + grid lines + radial glow */
+    background-image:
+        /* Radial center glow for liveliness */
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(56, 88, 196, 0.18) 0%, transparent 70%),
+        /* Horizontal grid lines */
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 59px,
+            rgba(56, 88, 196, 0.12) 60px
+        ),
+        /* Vertical grid lines */
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 59px,
+            rgba(56, 88, 196, 0.12) 60px
+        );
+    background-size: 100% 100%, 60px 60px, 60px 60px;
+}
+
+/* Animated flowing circuit overlay on infoSection */
+.infoSection::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+        /* Diagonal accent lines for artistic flair */
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 119px,
+            rgba(76, 198, 88, 0.04) 120px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 119px,
+            rgba(56, 88, 196, 0.04) 120px
+        );
+    animation: gridFlow 8s linear infinite;
+}
+
+@keyframes gridFlow {
+    0%   { background-position: 0 0, 0 0; }
+    100% { background-position: 120px 120px, -120px 120px; }
+}
+
+/* Glowing intersection dots */
+.infoSection::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: radial-gradient(circle, rgba(56, 88, 196, 0.35) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: 30px 30px;
+    animation: dotPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes dotPulse {
+    0%   { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* All direct children of infoSection need z-index above the grid */
+.infoSection > * {
+    position: relative;
+    z-index: 1;
+}
+
+.infoSection {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    gap: 80px;
+    padding: 80px 8%;
+}
+
+/* =============================================
+   HEADER & NAV
+   ============================================= */
+header {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    z-index: 1000; /* Keeps it on top of other content */
+    height: var(--header-h);
+    background-color: rgba(5, 10, 26, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(56, 88, 196, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 1000;
 }
 
-header a {
-    text-decoration: none;
-    color: var(--UIGreen);
+.headerMain {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 5px;
-    padding-left: 25px;
+    gap: 12px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logo-container h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--blue);
+    transition: var(--transition);
+    white-space: nowrap;
 }
 
 #logo {
-    overflow: visible;
+    fill: var(--blue);
+    transition: var(--transition);
+    flex-shrink: 0;
 }
 
 #gear-path {
-    fill: var(--UIGreen);
+    transform-origin: 150px 150px;
     transition: fill 0.3s ease;
 }
 
 #infinity-path {
-    fill: var(--UIGreen);
-    transform-box: fill-box;
-    transform-origin: center;
-    transition: transform 0.35s ease, fill 0.3s ease, filter 0.3s ease;
-}
-
-#gear-group {
-    transform-box: fill-box;
-    transform-origin: center;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.logo-container:hover {
-    cursor: pointer;
-}
-
-.logo-container:hover #gear-group {
-    transform: rotate(30deg);
-}
-
-.logo-container:hover #infinity-path {
-    transform: scale(1.18);
-    filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.95)) drop-shadow(0 0 12px rgba(238, 255, 0, 0.6));
+    transition: fill 0.3s ease;
 }
 
 .logo-container:hover h2 {
-    color: white;
+    color: var(--green);
 }
 
-.logo-container:active h2 {
-    color: var(--UIGreen);
+.logo-container:hover #gear-path {
+    fill: var(--green);
+    animation: gearSpin 1.5s linear infinite;
+}
+
+.logo-container:hover #infinity-path {
+    fill: var(--green);
+    filter: drop-shadow(0 0 6px var(--green));
+}
+
+@keyframes gearSpin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
 nav ul {
-    list-style: none;
-    padding-left: 0;
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-nav ul li {
-    margin: 0;
-    width: 200px;
-    text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    height: 60px;
-    line-height: 60px;
-    background-color: var(--UIGreen);
-    border-radius: 50px;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    align-items: center;
+    gap: 4px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: var(--favBlue);
-    font-weight: bold;
-    padding: 8px 16px;
+    display: block;
+    padding: 8px 18px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    letter-spacing: 0.03em;
 }
 
-nav ul li:hover {
-    background-color: var(--favBlue);
-    cursor: pointer;
-    box-shadow: 0px 0px 10px var(--glowBlue);
-    animation: navBarButtonHover 0.5s ease-in-out;
-}
-
-nav ul li:hover a {
-    color: var(--UIGreen);
+nav ul li a:hover {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 .hamburgerIcon {
     display: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburgerMenu {
+    display: flex;
     flex-direction: column;
     gap: 5px;
-    padding: 10px;
-    cursor: pointer;
 }
 
-#welcome {
-    color: white;
-    font-weight: 700;
-    font-size: 70px;
-    margin-bottom: 10px;
-    text-align: center;
+.hamburgerMenu span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--white);
+    border-radius: 2px;
+    transition: var(--transition);
 }
 
+/* =============================================
+   HERO SECTION
+   ============================================= */
 .hero {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
     height: 100vh;
-    padding-top: 100px;
-    color: white;
-    background-color: transparent;
-    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    user-select: none;
 }
 
 #heroCanvas {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -209,551 +334,641 @@ nav ul li:hover a {
     z-index: 0;
 }
 
-#heroCanvas:hover {
-    cursor: grab;
-}
-
-#heroCanvas:active {
-    cursor: grabbing;
-}
-
-.hero .heroContent {
+.heroContent {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    padding-left: 8%;
+    padding-top: var(--header-h);
+    pointer-events: none;
+    max-width: 560px;
+}
+
+.heroContent h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: heroLineIn 0.9s cubic-bezier(0.34, 1.7, 0.64, 1) forwards;
+}
+
+.heroContent h2:nth-child(1) { animation-delay: 0.2s; }
+.heroContent h2:nth-child(2) { animation-delay: 0.45s; }
+.heroContent h2:nth-child(3) {
+    animation-delay: 0.7s;
+    color: var(--green);
+}
+
+@keyframes heroLineIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero:hover { cursor: grab; }
+.hero:active { cursor: grabbing; }
+
+/* =============================================
+   DRAG HINT ICON (desktop only)
+   ============================================= */
+.dragHint {
+    position: absolute;
+    bottom: 36px;
+    right: 48px;
+    z-index: 3;
     display: flex;
-    flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1.5rem;
-    animation: h2Shadows 3s ease-in-out infinite;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: dragHintFadeIn 1s ease forwards 1.4s;
+    pointer-events: none;
 }
 
-.hero h2 {
-    margin-left: 5px;
-    margin-right: 5px;
-    position: relative;
-    z-index: 1;
-    animation: h2FadeIn 1s ease-in;
+@keyframes dragHintFadeIn {
+    to { opacity: 0.75; }
 }
 
-.profile {
-    color: black;
-    margin-top: 10px;
+.dragHintIcon {
+    width: 44px;
+    height: 44px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
     display: flex;
-    gap: 10px;
-}
-
-.profile>#about>.projectButtons>a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    background-color: var(--favBlue);
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 25px;
-    margin-right: 15px;
-    border: 2px solid var(--favBlue);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 4px 10px var(--blackShadow);
-    display: inline-block;
-}
-
-#buttons {
-    display: flex;
+    align-items: center;
     justify-content: center;
+    animation: dragHintBob 2s ease-in-out infinite;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(4px);
+}
+
+/* Hand cursor SVG drawn in CSS */
+.dragHintIcon::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0'/%3E%3Cpath d='M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2'/%3E%3Cpath d='M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8'/%3E%3Cpath d='M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@keyframes dragHintBob {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-5px); }
+}
+
+/* Left/right arrows around the icon */
+.dragHintArrows {
+    display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 2px;
 }
 
-.missionStatement, #aboutMe {
-    color: white;
-    background-color: rgb(76, 198, 88, 0.8);
-    animation: h2Shadows 3s ease-in-out infinite;
-    border-radius: 150px;
-    padding: 50px;
-    padding-left: 120px;
-    padding-right: 120px;
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 100px;
-    position: relative;
-    line-height: 2rem;
-    z-index: 0;
+.dragHintArrows span {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.05em;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.missionStatement h3, #aboutMe h3 {
-    margin-top: 0;
-    font-size: 2.5rem;
+.dragHintArrows::before,
+.dragHintArrows::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 1.5px;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 1px;
+    animation: arrowPulse 2s ease-in-out infinite;
 }
 
-.missionStatement p, #aboutMe p {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+.dragHintArrows::before { animation-delay: 0s; }
+.dragHintArrows::after  { animation-delay: 0.5s; }
+
+@keyframes arrowPulse {
+    0%, 100% { opacity: 0.35; }
+    50%       { opacity: 0.9; }
 }
 
-.skills h3, #projects h3, #resumeDownload h3, #contactForm h4 {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 1000;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-    color: white;
-    text-shadow: 0 0 10px var(--glowBlue);
-    position: relative;
-    z-index: 1;
+/* Hide drag hint on mobile/tablet */
+@media (max-width: 1024px) {
+    .dragHint { display: none; }
 }
 
-.skills h4 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    font-weight: bold;
+/* =============================================
+   SECTION HEADERS (shared pattern)
+   ============================================= */
+.sectionTitle {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--white);
+    display: inline-block;
+    margin-bottom: 8px;
 }
 
+.sectionTitle::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: var(--green);
+    border-radius: 2px;
+    margin-top: 8px;
+}
+
+/* Apply to existing h3s inside infoSection */
+.missionStatement h3,
+.skills h3,
+#projects h3,
+#aboutMe h3,
+#contactForm h4 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 700;
+    color: var(--white);
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.missionStatement h3::after,
+.skills h3::after,
+#projects h3::after,
+#aboutMe .aboutMeInfo h3::after,
+#contactForm h4::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: var(--green);
+    border-radius: 2px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+/* =============================================
+   MISSION STATEMENT
+   ============================================= */
+.missionStatement {
+    max-width: 720px;
+}
+
+.missionStatement p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.85;
+    margin-top: 8px;
+}
+
+/* =============================================
+   SKILLS CARDS — GOLD THEME
+   ============================================= */
 .skillsSection {
-    display: flex;
-    flex-direction: row;
-    align-items: top;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 8px;
 }
 
 .skillsCard {
-    list-style: none;
-    width: 250px;
-    text-align: center;
-    background-color: var(--goldCard);
-    border: 1px solid var(--goldRim);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.skillsCard:hover {
-    transform: translateY(-25px);
-    box-shadow: 0 0px 20px var(--goldShine);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    background-color: var(--goldShine);
-    color: black;
-}
-
-.skillsCard ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.skillsCard, .projectBox, #resumeDownload, footer {
+    background: rgba(240, 192, 64, 0.05);
+    border: 1px solid rgba(240, 192, 64, 0.2);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    transition: var(--transition);
     position: relative;
-    z-index: 1;
-    color: white;
-    border-radius: 25px;
-    padding: 20px;
-    margin: 20px;
-    box-shadow: 0 4px 15px var(--blackShadow);
+    overflow: hidden;
 }
 
-.projectBox {
-    width: 1235px;
-    height: 300px;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    text-align: center;
-    align-content: center;
-    border: 1px solid var(--goldRim)
+/* Gold shimmer line on top */
+.skillsCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold));
+    background-size: 200% 100%;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    animation: goldShimmer 3s linear infinite;
 }
 
-.projectBox h4 {
-    margin-top: 0;
-    font-size: 1.8rem;
-    text-shadow: 0 0 5px var(--glowBlue);
+@keyframes goldShimmer {
+    0%   { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
 }
 
-.projectBox p a {
-    font-size: 1.2rem;
-    line-height: 1.5rem;
+/* Hover: rise and glow gold */
+.skillsCard:hover {
+    background: rgba(240, 192, 64, 0.1);
+    border-color: rgba(240, 192, 64, 0.55);
+    transform: translateY(-6px);
+    box-shadow:
+        0 8px 32px var(--gold-glow),
+        0 0 0 1px rgba(240, 192, 64, 0.2),
+        inset 0 0 20px rgba(240, 192, 64, 0.05);
 }
 
-.projectBox:first-of-type {
-    background-image: url("../assets/images/lori_langendorf_screenshot.png");
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/lori_langendorf_screenshot.png');
-    background-position: -10px -150px;
+.skillsCard:hover::before {
+    opacity: 1;
 }
 
-.projectBox:nth-of-type(2) {
-    background-image: url("../assets/images/avalon_adventures_screenshot.png");
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/avalon_adventures_screenshot.png');
-    background-size: cover;
-}
-
-.projectBox:nth-of-type(3) {
-    background-image: url("../assets/images/pokemon_screenshot.png");
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/pokemon_screenshot.png');
-    background-size: cover;
-}
-
-.projectBox:nth-of-type(4) {
-    background-image: url("../assets/images/todo_screenshot.png");
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/todo_screenshot.png');
-    background-size: cover;
-}
-
-.projectBox:hover {
-    box-shadow: 0 0px 20px var(--glowBlue);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    background-color: transparent;
-    color: white;
-}
-
-.projectBox button {
-    margin: 0;
-    width: 200px;
-    text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
+/* Inner radial glow that appears on hover */
+.skillsCard::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
     height: 60px;
-    line-height: 60px;
-    background-color: var(--UIGreen);
-    border-radius: 50px;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: none;
-    font-family: 'dosis';
-    font-size: 1rem;
+    background: radial-gradient(ellipse, var(--gold-glow) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
 }
 
-.projectBox button a {
-    text-decoration: none;
-    color: var(--favBlue);
-    font-weight: bold;
-    padding: 8px 16px;
+.skillsCard:hover::after {
+    opacity: 1;
 }
 
-.projectBox button:hover {
-    background-color: var(--favBlue);
-    cursor: pointer;
-    box-shadow: 0px 0px 10px var(--glowBlue);
-    animation: navBarButtonHover 0.5s ease-in-out;
+.skillsCard h4 {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--gold);
+    margin-bottom: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
-.projectBox button:hover a {
-    color: var(--UIGreen);
+.skillsCard ul li {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(240, 192, 64, 0.08);
+    transition: color 0.2s ease;
 }
 
-.projectBox button:active, nav ul li:active {
-    background-color: var(--UIGreen);
-    color: var(--favBlue);
-    box-shadow: none;
+.skillsCard ul li:last-child {
+    border-bottom: none;
 }
 
-.projectBox button:active a, nav ul li:active a {
-    color: var(--favBlue);
+.skillsCard:hover ul li {
+    color: var(--off-white, #f0f4ff);
+}
+
+/* =============================================
+   PROJECTS
+   ============================================= */
+#projects {
+    width: 100%;
 }
 
 .projectsGallery {
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 80px;
-    align-items: top;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 8px;
 }
 
+.projectBox {
+    position: relative;
+    height: 320px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background-size: cover;
+    background-position: center top;
+    border: 2px solid var(--gold-dark);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.projectBox:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 20px var(--gold-glow);
+    border-color: var(--gold);
+}
+
+/* Dark gradient overlay -- always present but lightens on hover */
+.projectBoxOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(5, 10, 26, 0.95) 0%,
+        rgba(5, 10, 26, 0.5) 50%,
+        rgba(5, 10, 26, 0.1) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px 24px;
+    transition: var(--transition);
+}
+
+.projectBox:hover .projectBoxOverlay {
+    background: linear-gradient(
+        to top,
+        rgba(5, 10, 26, 0.98) 0%,
+        rgba(5, 10, 26, 0.7) 55%,
+        rgba(5, 10, 26, 0.25) 100%
+    );
+}
+
+.projectBoxOverlay h4 {
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+/* Description hidden at rest, slides up on hover */
+.projectBoxOverlay p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    margin-bottom: 0;
+}
+
+.projectBox:hover .projectBoxOverlay p {
+    max-height: 80px;
+    opacity: 1;
+    margin-bottom: 14px;
+}
+
+.projectBoxOverlay button {
+    align-self: flex-start;
+    background: transparent;
+    border: 1.5px solid var(--green);
+    border-radius: 25px;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+.projectBox:hover .projectBoxOverlay button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.projectBoxOverlay button a {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--green);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.projectBoxOverlay button:hover {
+    background: var(--green);
+    box-shadow: 0 4px 20px var(--green-glow);
+}
+
+.projectBoxOverlay button:hover a {
+    color: var(--blue-navy);
+}
+
+/* =============================================
+   ABOUT ME
+   ============================================= */
 #aboutMe {
     display: flex;
-    gap: 50px;
     align-items: center;
-    justify-content: center;
+    gap: 48px;
 }
 
-#aboutMe p {
-    line-height: 2rem;
-}
-
-#aboutMe .profilePic img{
-    border-radius: 300px;
-    width: 250px;
-    height: 250px;
+.profilePic img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
     object-fit: cover;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: var(--goldRim) 1px solid;
-    box-shadow: var(--blackShadow) 0 4px 15px;
+    border: 4px solid var(--green);
+    box-shadow: 0 0 30px var(--green-glow);
+    flex-shrink: 0;
 }
 
-#aboutMe .profilePic img:hover {
-    transform: scale(1.1);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: var(--goldShine) 0 0px 40px;
+.aboutMeInfo p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.85;
+    max-width: 600px;
 }
 
+/* =============================================
+   CONTACT FORM — GOLD THEME
+   ============================================= */
 #contactForm {
-    background-color: var(--goldCard);
-    border: var(--goldRim) 1px solid;
-    color: white;
-    padding: 20px;
-    border-radius: 25px;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 100px;
-    position: relative;
-    z-index: 1;
-    width: 800px;
-    margin-right: auto;
-    margin-left: auto;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-#contactForm:hover {
-    box-shadow: 0 0px 20px var(--goldShine);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-#contactForm h4 {
-    text-align: center;
-    margin-top: 10px;
+    max-width: 640px;
 }
 
 #contactForm form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
+    margin-top: 8px;
 }
 
-#contactForm form input, #contactForm form textarea {
-    padding: 10px;
-    border: var(--goldRim) 1px solid;
-    border-radius: 5px;
-    font-size: 1rem;
-    width: 70%;
-    margin-right: auto;
-    margin-left: auto;
-    font-family: 'dosis';
+#contactForm input,
+#contactForm textarea {
+    background: rgba(240, 192, 64, 0.04);
+    border: 1px solid rgba(240, 192, 64, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--white);
+    transition: var(--transition);
+    outline: none;
+    width: 100%;
 }
 
-#contactForm form textarea {
-    height: 200px;
-    resize: none;
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+    color: rgba(240, 192, 64, 0.4);
 }
 
-#contactForm form button {
-    width: 200px;
-    height: 50px;
-    line-height: 50px;
-    background-color: var(--favBlue);
-    border-radius: 25px;
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: var(--gold);
+    background: rgba(240, 192, 64, 0.07);
+    box-shadow: 0 0 0 3px var(--gold-glow);
+}
+
+#contactForm textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+#contactForm button[type="submit"] {
+    align-self: flex-start;
+    background: var(--gold);
+    color: var(--blue-navy);
     border: none;
-    color: white;
+    border-radius: 25px;
+    padding: 12px 32px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 700;
     font-size: 1rem;
-    font-weight: bold;
-    margin-right: auto;
-    margin-left: auto;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    font-family: 'dosis';
-}
-
-#contactForm form button:hover {
-    background-color: var(--UIGreen);
     cursor: pointer;
-    box-shadow: 0px 0px 10px var(--glowBlue);
-    animation: navBarButtonHover 0.5s ease-in-out;
-    color: var(--favBlue);
+    transition: var(--transition);
+    letter-spacing: 0.04em;
 }
 
-#contactForm form button:active {
-    background-color: var(--favBlue);
-    color: var(--UIGreen);
-    box-shadow: none;
+#contactForm button[type="submit"]:hover {
+    background: var(--gold-light);
+    box-shadow: 0 6px 28px var(--gold-glow);
+    transform: translateY(-2px);
 }
 
+/* =============================================
+   RESUME DOWNLOAD
+   ============================================= */
 #resumeDownload {
-    width: 1000px;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    text-align: center;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/resume_screenshot.png');
-    background-size: cover;
-    background-position: -70px -50px;
-    border: 1px solid var(--goldRim)
-}
-
-#resumeDownload:hover {
-    box-shadow: 0 0px 20px var(--glowBlue);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    background-color: transparent;
-    color: white;
 }
 
 #resumeDownload a {
-    margin: 0;
-    width: 200px;
-    text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    height: 60px;
-    line-height: 60px;
-    background-color: var(--UIGreen);
-    border-radius: 50px;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: none;
-    text-decoration: none;
-    color: var(--favBlue);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 1.5px solid var(--blue);
+    border-radius: 25px;
+    padding: 12px 32px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 700;
     font-size: 1rem;
+    color: var(--text-light);
+    transition: var(--transition);
+    letter-spacing: 0.04em;
 }
 
 #resumeDownload a:hover {
-    background-color: var(--favBlue);
-    cursor: pointer;
-    box-shadow: 0px 0px 10px var(--glowBlue);
-    animation: navBarButtonHover 0.5s ease-in-out;
-    color: var(--UIGreen);
+    border-color: var(--green);
+    color: var(--green);
+    box-shadow: 0 6px 24px var(--green-glow);
+    transform: translateY(-2px);
 }
 
-#resumeDownload a:active {
-    background-color: var(--UIGreen);
-    color: var(--favBlue);
-    box-shadow: none;
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+    background: rgba(5, 10, 26, 0.97);
+    border-top: 1px solid rgba(56, 88, 196, 0.2);
+    text-align: center;
+    padding: 28px 40px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
 }
 
-@media (max-width: 1200px) {
-    .missionStatement, #aboutMe {
-        width: 80%;
-        padding: 30px;
-        padding-left: 50px;
-        padding-right: 50px;
-    }
-    #resumeDownload {
-        width: 80%;
-        height: 120px;
-    }
-
-}
-
-@media (max-width: 900px) {
-    .hero .heroContent {
-        flex-direction: column;
-        text-align: center;
-    }
-    .skillsSection {
-        flex-direction: column;
-        align-items: center;
-    }
-    #resumeDownload {
-        width: 80%;
-        height: 200px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-    #contactForm {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 1024px) {
+    .projectsGallery {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     header {
-        gap: 5px;
-        padding: 10px;
-        background-color: var(--favBlue);
+        padding: 0 20px;
+        height: auto;
         flex-direction: column;
+        align-items: stretch;
     }
+
     .headerMain {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 5px;
+        justify-content: space-between;
+        padding: 16px 0;
     }
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 30px;
-        display: none;
-    }
-    nav ul li {
-        width: 400px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+
     .hamburgerIcon {
-        display: flex;
-        height: 50px;
-        width: 50px;
-        background-color: var(--UIGreen);
-        margin-left: auto;
-    }
-    .hamburgerIcon:hover {
-        background-color: var(--favBlue);
-        cursor: pointer;
-        box-shadow: 0px 0px 10px var(--glowBlue);
-    }
-    .hamburgerIcon:hover span {
-        background-color: var(--UIGreen);
-    }
-    .hamburgerIcon span {
         display: block;
-        height: 5px;
-        width: 50px;
-        background-color: var(--favBlue);
-        margin: 8.5px auto;
-        transition: all 0.3s ease;
     }
-    .hero .heroContent {
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        display: none;
         flex-direction: column;
-        text-align: center;
+        gap: 0;
+        padding-bottom: 12px;
     }
-    #heroCanvas:hover {
-        cursor: default;
+
+    nav ul.open {
+        display: flex;
     }
-    .missionStatement {
-        width: 80%;
-        padding: 30px;
-        padding-left: 50px;
-        padding-right: 50px;
+
+    nav ul li a {
+        padding: 12px 0;
+        border-radius: 0;
+        border-top: 1px solid var(--card-border);
+    }
+
+    .heroContent {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .heroContent h2 {
+        font-size: clamp(1.6rem, 6vw, 2.4rem);
+    }
+
+    .infoSection {
+        padding: 60px 6%;
+        gap: 60px;
+    }
+
+    .projectsGallery {
+        grid-template-columns: 1fr;
     }
 
     .skillsSection {
-        flex-direction: column;
+        grid-template-columns: 1fr 1fr;
     }
 
-    .skillsCard {
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: larger;
-    }
-    .missionStatement {
-        width: 80%;
-        padding: 30px;
-        padding-left: 50px;
-        padding-right: 50px;
-        text-align: center;
-    }
     #aboutMe {
         flex-direction: column;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        width: 70%;
-            padding: 30px;
-            padding-left: 50px;
-            padding-right: 50px;
+        align-items: flex-start;
+        gap: 28px;
     }
-    #resumeDownload {
-        width: 80%;
-        height: 500px;
-        margin-right: auto;
-        margin-left: auto;
+
+    .profilePic img {
+        width: 140px;
+        height: 140px;
     }
-    #contactForm {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
+}
+
+@media (max-width: 480px) {
+    .skillsSection {
+        grid-template-columns: 1fr;
+    }
+
+    #contactForm button[type="submit"],
+    #resumeDownload a {
+        width: 100%;
+        justify-content: center;
     }
 }
