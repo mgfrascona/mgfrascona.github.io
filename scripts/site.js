@@ -11,3 +11,12 @@ if (window.innerWidth < 768) {
 } else {
     navMenu.classList.remove('open')
 }
+
+if (window.matchMedia('(hover: none)').matches) {
+    document.querySelectorAll('.projectBoxOverlay p, .projectBoxOverlay button').forEach(el => {
+        el.style.opacity = '1'
+        el.style.maxHeight = '200px'
+        el.style.transform = 'translateY(0)'
+        el.style.marginBottom = '14px'
+    })
+}
