@@ -72,11 +72,9 @@ controls.enableZoom = false
 controls.enableRotate = true
 controls.autoRotate = false
 
-// Disable OrbitControls on touch devices only
-const isTouchDevice = window.matchMedia('(pointer: coarse)').matches
-if (isTouchDevice) {
+// Disable controls and canvas interaction on touch/mobile
+if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 1024) {
     controls.enabled = false
-    canvas.style.pointerEvents = 'none'
 }
 
 // Bloom post-processing
