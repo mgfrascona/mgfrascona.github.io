@@ -1001,3 +1001,25 @@ footer {
         justify-content: center;
     }
 }
+
+@media (hover: none) {
+    .projectBoxOverlay {
+        background: linear-gradient(
+            to top,
+            rgba(5, 10, 26, 0.98) 0%,
+            rgba(5, 10, 26, 0.7) 55%,
+            rgba(5, 10, 26, 0.25) 100%
+        );
+    }
+
+    .projectBoxOverlay p {
+        max-height: 80px;
+        opacity: 1;
+        margin-bottom: 14px;
+    }
+
+    .projectBoxOverlay button {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
