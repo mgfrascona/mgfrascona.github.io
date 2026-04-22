@@ -649,3 +649,140 @@ footer {
     margin: 0 auto 30px;
     border-radius: 3px;
 }
+
+@media (max-width: 1024px) {
+    .package-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Fix full-bleed sections on mobile */
+    header, .hero, nav, .page-hero,
+    .price-bar, .contact-bar, footer {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* Hero */
+    header, .hero {
+        min-height: 380px;
+        padding: 80px 24px 40px;
+    }
+
+    #tagline {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    /* Nav */
+    nav {
+        gap: 0;
+        padding: 0;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 0.82rem;
+        padding: 12px 14px;
+        letter-spacing: 0.8px;
+    }
+
+    /* Main padding */
+    main {
+        padding: 32px 20px 48px;
+    }
+
+    /* Package grid */
+    .package-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Content sections -- stack vertically */
+    .content-section,
+    .content-section:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .section-image {
+        min-width: 100%;
+        height: 240px;
+    }
+
+    .section-text {
+        padding: 32px 24px;
+    }
+
+    /* Staff grid */
+    .staff-grid {
+        grid-template-columns: 1fr;
+        padding: 32px 20px;
+        gap: 20px;
+    }
+
+    /* About */
+    .about-content {
+        padding: 32px 20px;
+    }
+
+    /* Contact form */
+    .contact-wrapper {
+        margin: 32px 20px;
+        padding: 28px 24px;
+    }
+
+    /* Contact bar */
+    .contact-bar {
+        gap: 16px;
+        padding: 16px 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Footer */
+    footer {
+        padding: 24px 20px;
+    }
+
+    /* Page hero */
+    .page-hero {
+        min-height: 280px;
+        padding: 24px 20px;
+    }
+
+    .page-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Brewery list */
+    .brewery-list {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    #tagline {
+        font-size: 1.5rem;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #push, .btn-primary {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+    }
+}

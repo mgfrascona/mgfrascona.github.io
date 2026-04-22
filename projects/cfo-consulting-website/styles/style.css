@@ -617,62 +617,145 @@ footer p {
     margin-top: 0;
 }
 
-/* =============================================
-   RESPONSIVE
-   ============================================= */
 @media (max-width: 900px) {
+    nav ul li {
+        width: 160px;
+    }
+
+    .services article {
+        width: 94%;
+    }
+
     aside {
         width: calc(50% - 12px);
     }
 }
 
 @media (max-width: 768px) {
+    /* Top bar */
     #topBar {
-        padding: 8px 20px;
-        flex-wrap: wrap;
-        gap: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 12px 16px;
     }
 
+    /* Nav stacks vertically */
     nav {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         position: relative;
+    }
+
+    nav a img {
+        height: 50px;
+        padding: 4px 16px;
     }
 
     nav ul {
         flex-direction: column;
-        align-items: center;
         width: 100%;
         margin: 0;
     }
 
     nav ul li {
         width: 100%;
+        height: auto;
+        line-height: normal;
+        padding: 0;
         border-bottom: 1px solid var(--accent-color);
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 16px 20px;
+        text-align: center;
     }
 
     nav ul li::after {
         display: none;
     }
 
+    /* Banners */
+    main #banner,
+    #bannerBusiness,
+    #bannerAccounting,
+    #bannerCFO {
+        height: 240px;
+        background-attachment: scroll;
+    }
+
+    main #banner h2,
+    #bannerBusiness h2,
+    #bannerAccounting h2,
+    #bannerCFO h2 {
+        font-size: 1.2rem;
+        padding: 0 24px;
+    }
+
+    /* Services title */
+    .services > h1 {
+        font-size: 1.3rem;
+        padding: 14px 20px;
+    }
+
+    /* Article asides -- stack vertically */
+    .services article {
+        flex-direction: column;
+        width: 92%;
+        gap: 16px;
+        margin: 32px auto;
+    }
+
+    aside {
+        width: 100%;
+        padding: 24px 20px;
+    }
+
+    /* Home service sections -- stack */
     section {
         flex-direction: column;
     }
 
     section .serviceSection {
-        height: 280px;
+        height: 260px;
+        min-width: 100%;
     }
 
-    aside {
-        width: 100%;
+    /* Service cards */
+    #banner {
+        padding: 32px 20px;
+        gap: 16px;
     }
 
-    .services article {
-        width: 92%;
-        margin: 32px auto;
+    .serviceCard {
+        min-width: 100%;
+        max-width: 100%;
+        padding: 28px 24px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 24px 20px;
     }
 
     footer ul {
-        gap: 24px;
+        gap: 16px;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    main #banner h2,
+    #bannerBusiness h2,
+    #bannerAccounting h2,
+    #bannerCFO h2 {
+        font-size: 1rem;
+    }
+
+    #topBar button {
+        width: 100%;
+        text-align: center;
     }
 }

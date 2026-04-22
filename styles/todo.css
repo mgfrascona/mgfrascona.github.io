@@ -168,3 +168,52 @@
     border: 2px solid var(--UIGreen);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
+
+@media (max-width: 768px) {
+    #todo-form {
+        width: 90%;
+        margin: 140px auto 40px;
+        padding: 24px 20px;
+    }
+
+    .back-button {
+        top: 80px;
+        left: 16px;
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    #todo-form h3 {
+        font-size: 1.6rem;
+    }
+
+    .todo-list li span {
+        font-size: 1rem;
+    }
+
+    #todo-form button {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #todo-form {
+        width: 94%;
+        margin: 120px auto 32px;
+    }
+
+    .todo-input-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #new-todo {
+        width: 100%;
+    }
+
+    #todo-form button {
+        margin-top: 0;
+    }
+}
