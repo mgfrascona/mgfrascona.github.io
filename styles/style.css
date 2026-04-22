@@ -964,6 +964,17 @@ footer {
         pointer-events: none;
         touch-action: none;
     }
+
+    .projectBox .projectBoxOverlay p {
+        max-height: 80px !important;
+        opacity: 1 !important;
+        margin-bottom: 14px;
+    }
+
+    .projectBox .projectBoxOverlay button {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
 }
 
 @media (max-width: 480px) {
