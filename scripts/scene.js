@@ -72,6 +72,11 @@ controls.enableZoom = false
 controls.enableRotate = true
 controls.autoRotate = false
 
+// Disable OrbitControls on touch devices
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    controls.enabled = false
+}
+
 // Bloom post-processing
 const composer = new EffectComposer(renderer)
 composer.addPass(new RenderPass(scene, camera))
