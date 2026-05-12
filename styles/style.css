@@ -23,7 +23,7 @@
     --text-muted:  #7a90c4;
     --card-bg:     rgba(255, 255, 255, 0.04);
     --card-border: rgba(255, 255, 255, 0.09);
-    --header-h:    80px;
+    --header-h:    100px;
     --radius:      12px;
     --radius-sm:   8px;
     --transition:  all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -199,7 +199,7 @@ header {
     left: 0;
     width: 100%;
     height: var(--header-h);
-    background-color: rgba(5, 10, 26, 0.92);
+    background-color: rgba(18, 35, 91, 0.92);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(56, 88, 196, 0.25);
@@ -227,13 +227,13 @@ header {
 .logo-container h2 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--blue);
+    color: var(--green);
     transition: var(--transition);
     white-space: nowrap;
 }
 
 #logo {
-    fill: var(--blue);
+    fill: var(--green);
     transition: var(--transition);
     flex-shrink: 0;
 }
@@ -248,17 +248,17 @@ header {
 }
 
 .logo-container:hover h2 {
-    color: var(--green);
+    color: var(--gold-light);
 }
 
 .logo-container:hover #gear-path {
-    fill: var(--green);
+    fill: var(--gold-light);
     animation: gearSpin 1.5s linear infinite;
 }
 
 .logo-container:hover #infinity-path {
-    fill: var(--green);
-    filter: drop-shadow(0 0 6px var(--green));
+    fill: var(--gold-light);
+    filter: drop-shadow(0 0 6px var(--gold-light));
 }
 
 @keyframes gearSpin {
