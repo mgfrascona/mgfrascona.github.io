@@ -60,18 +60,56 @@
                 <h2>Creating visuals.</h2>
                 <h2>Building websites.</h2>
                 <h2>Designing experiences.</h2>
+                <p class="heroTagline">Web design &amp; development for small businesses and charitable organizations.</p>
+                <div class="heroCTAs">
+                    <a href="#projects" class="btnPrimary">View My Work</a>
+                    <a href="#contactForm" class="btnSecondary">Start a Project</a>
+                </div>
             </div>
         <div class="dragHint">
             <div class="dragHintIcon"></div>
             <div class="dragHintArrows">
                 <span>drag to explore</span>
             </div>
-        </div>          
+        </div>
         </div>
         <div class="infoSection">
             <div class="missionStatement">
                 <h3>My Mission</h3>
-                <p>I strive to create user experiences that are not only functional but also visually striking. My goal is to bridge the gap between design and development to deliver solutions for businesses of every size.</p>
+                <p>I help small businesses and charitable organizations grow their reach with websites that are accessible, visually striking, and built to convert. By bridging thoughtful design with clean development, I deliver digital experiences that feel custom-made — without the enterprise price tag.</p>
+            </div>
+            <div class="services">
+                <h3>What I Offer</h3>
+                <div class="servicesGrid">
+                    <div class="serviceCard">
+                        <div class="serviceIcon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </div>
+                        <h4>Custom Website Design</h4>
+                        <p>Tailored, responsive websites built from scratch — no cookie-cutter templates. Designed around your brand, audience, and goals.</p>
+                    </div>
+                    <div class="serviceCard">
+                        <div class="serviceIcon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M22 2 12 12"/><path d="M16 2h6v6"/></svg>
+                        </div>
+                        <h4>Nonprofit &amp; Charity Sites</h4>
+                        <p>Mission-focused websites with donation flows, volunteer sign-ups, and event pages — built to amplify your cause.</p>
+                    </div>
+                    <div class="serviceCard">
+                        <div class="serviceIcon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+                        </div>
+                        <h4>Accessibility &amp; SEO</h4>
+                        <p>WCAG-conscious markup, semantic structure, and search-friendly metadata so every visitor — and every search engine — finds you.</p>
+                    </div>
+                    <div class="serviceCard">
+                        <div class="serviceIcon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                        </div>
+                        <h4>Brand &amp; UI Design</h4>
+                        <p>Logos, color systems, typography, and component libraries that give your organization a cohesive, professional identity.</p>
+                    </div>
+                </div>
             </div>
             <div class="skills">
                 <h3>Skills</h3>
@@ -112,45 +150,66 @@
                 </div>
             </div>
             <div id="projects">
-                <h3>Projects</h3>
-                <div class="projectsGallery">
-                    <div class="projectBox" style="background-image: url('assets/images/lori_langendorf_screenshot.png');">
-                        <div class="projectBoxOverlay">
-                            <h4>Lori Langendorf, CPA</h4>
-                            <p>A custom website for Lori Langendorf, the Certified Public Accountant of a mid-sized company based in Sault Ste. Marie, MI.</p>
-                            <button><a href="projects/cfo-consulting-website/home.html">See Project</a></button>
+                <h3>Featured Projects</h3>
+                <p class="sectionLead">A selection of client work and personal builds — each one a study in clean design, performance, and purposeful interaction.</p>
+                <div class="projectsCarousel" role="region" aria-label="Featured projects carousel">
+                    <button class="carouselBtn carouselPrev" aria-label="Previous project" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <div class="carouselViewport">
+                        <div class="carouselTrack">
+                            <div class="projectBox" style="background-image: url('assets/images/lori_langendorf_screenshot.png');">
+                                <div class="projectBoxOverlay">
+                                    <span class="projectTag">Small Business</span>
+                                    <h4>Lori Langendorf, CPA</h4>
+                                    <p>A custom website for Lori Langendorf, the Certified Public Accountant of a mid-sized company based in Sault Ste. Marie, MI.</p>
+                                    <button><a href="projects/cfo-consulting-website/home.html">See Project</a></button>
+                                </div>
+                            </div>
+                            <div class="projectBox" style="background-image: url('assets/images/avalon_adventures_screenshot.png');">
+                                <div class="projectBoxOverlay">
+                                    <span class="projectTag">Travel &amp; Tourism</span>
+                                    <h4>Avalon Adventures</h4>
+                                    <p>A custom website for Avalon Adventures, a fictional travel company based in St. John's, NL, Canada.</p>
+                                    <button><a href="projects/avalon-adventures/index.html">See Project</a></button>
+                                </div>
+                            </div>
+                            <div class="projectBox" style="background-image: url('assets/images/pokemon_screenshot.png');">
+                                <div class="projectBoxOverlay">
+                                    <span class="projectTag">API Integration</span>
+                                    <h4>Pokémon API</h4>
+                                    <p>A JavaScript-run API fetcher and generator for the Pokémon API, showcasing various Pokémon data and functionality.</p>
+                                    <button><a href="projects/pokemon-api/index.html">See Project</a></button>
+                                </div>
+                            </div>
+                            <div class="projectBox" style="background-image: url('assets/images/todo_screenshot.png');">
+                                <div class="projectBoxOverlay">
+                                    <span class="projectTag">Web App</span>
+                                    <h4>To-Do List App</h4>
+                                    <p>A simple yet effective to-do list application built with HTML, CSS, and JavaScript. Includes a working checkmark system!</p>
+                                    <button><a href="projects/todo/index.html">See Project</a></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="projectBox" style="background-image: url('assets/images/avalon_adventures_screenshot.png');">
-                        <div class="projectBoxOverlay">
-                            <h4>Avalon Adventures</h4>
-                            <p>A custom website for Avalon Adventures, a fictional travel company based in St. John's, NL, Canada.</p>
-                            <button><a href="projects/avalon-adventures/index.html">See Project</a></button>
-                        </div>
-                    </div>
-                    <div class="projectBox" style="background-image: url('assets/images/pokemon_screenshot.png');">
-                        <div class="projectBoxOverlay">
-                            <h4>Pokemon API</h4>
-                            <p>A JavaScript-run API fetcher and generator for the Pokemon API, showcasing various Pokemon data and functionality.</p>
-                            <button><a href="projects/pokemon-api/index.html">See Project</a></button>
-                        </div>
-                    </div>
-                    <div class="projectBox" style="background-image: url('assets/images/todo_screenshot.png');">
-                        <div class="projectBoxOverlay">
-                            <h4>To-Do List App</h4>
-                            <p>A simple yet effective to-do list application built with HTML, CSS, and JavaScript. Includes working checkmark system!</p>
-                            <button><a href="projects/todo/index.html">See Project</a></button>
-                        </div>
-                    </div>
+                    <button class="carouselBtn carouselNext" aria-label="Next project" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                    <div class="carouselDots" role="tablist" aria-label="Project slides"></div>
                 </div>
             </div>
             <div id="aboutMe">
                 <div class="profilePic">
-                    <img src="assets/images/profile-pic.jpg" alt="Profile Picture">
+                    <img src="assets/images/profile-pic.jpg" alt="Portrait of Michael Frascona">
                 </div>
                 <div class="aboutMeInfo">
                     <h3>About Me</h3>
-                    <p>I'm a web and UI/UX designer with a passion for creating visually stunning and user-friendly websites. With a background in digital animation and keen attention to detail, I blend creativity and technical skills to every project I work on. I specialize in crafting responsive and engaging web experiences that not only look great but also function seamlessly across all devices.</p>
+                    <p>I'm a web and UI/UX designer who believes great design shouldn't be reserved for big budgets. My background in digital animation taught me how to make pixels move with purpose; my development work taught me how to make them load fast and work everywhere. Together, I bring small businesses and charitable organizations the kind of polished, modern web presence that helps them compete — and convert.</p>
+                    <ul class="aboutHighlights">
+                        <li><strong>Hands-on collaboration</strong> — you talk directly with the person designing and building your site.</li>
+                        <li><strong>Performance &amp; accessibility first</strong> — responsive, fast-loading, and inclusive by default.</li>
+                        <li><strong>Honest, transparent pricing</strong> — clear scopes, no hidden fees, built for nonprofit-friendly budgets.</li>
+                    </ul>
                 </div>
             </div>
             <div id="contactForm">

@@ -360,6 +360,72 @@ nav ul li a:hover {
     color: var(--green);
 }
 
+.heroTagline {
+    margin-top: 22px;
+    font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+    color: var(--text-light);
+    line-height: 1.6;
+    max-width: 520px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroLineIn 0.9s cubic-bezier(0.34, 1.7, 0.64, 1) forwards 0.95s;
+}
+
+.heroCTAs {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroLineIn 0.9s cubic-bezier(0.34, 1.7, 0.64, 1) forwards 1.15s;
+}
+
+.btnPrimary,
+.btnSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 28px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    transition: var(--transition);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btnPrimary {
+    background: var(--green);
+    color: var(--blue-navy);
+    border: 1.5px solid var(--green);
+    box-shadow: 0 4px 18px var(--green-glow);
+}
+
+.btnPrimary:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--blue-navy);
+    box-shadow: 0 6px 24px var(--gold-glow);
+    transform: translateY(-2px);
+}
+
+.btnSecondary {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(4px);
+}
+
+.btnSecondary:hover {
+    border-color: var(--green);
+    color: var(--green);
+    transform: translateY(-2px);
+}
+
 @keyframes heroLineIn {
     to {
         opacity: 1;
@@ -485,6 +551,7 @@ nav ul li a:hover {
 /* Apply to existing h3s inside infoSection */
 .missionStatement h3,
 .skills h3,
+.services h3,
 #projects h3,
 #aboutMe h3,
 #contactForm h4 {
@@ -497,6 +564,7 @@ nav ul li a:hover {
 
 .missionStatement h3::after,
 .skills h3::after,
+.services h3::after,
 #projects h3::after,
 #aboutMe .aboutMeInfo h3::after,
 #contactForm h4::after {
@@ -625,22 +693,200 @@ nav ul li a:hover {
 }
 
 /* =============================================
-   PROJECTS
+   SERVICES
+   ============================================= */
+.sectionLead {
+    margin-top: 4px;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 680px;
+    line-height: 1.7;
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    margin-top: 16px;
+}
+
+.serviceCard {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.serviceCard::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--green), var(--blue));
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.serviceCard:hover {
+    transform: translateY(-6px);
+    border-color: rgba(76, 198, 88, 0.4);
+    background: rgba(76, 198, 88, 0.04);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(76, 198, 88, 0.15);
+}
+
+.serviceCard:hover::before { opacity: 1; }
+
+.serviceIcon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(76, 198, 88, 0.1);
+    border: 1px solid rgba(76, 198, 88, 0.25);
+    color: var(--green);
+    margin-bottom: 16px;
+    transition: var(--transition);
+}
+
+.serviceIcon svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+.serviceCard:hover .serviceIcon {
+    background: rgba(76, 198, 88, 0.18);
+    border-color: var(--green);
+    transform: scale(1.05);
+}
+
+.serviceCard h4 {
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+}
+
+.serviceCard p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.65;
+}
+
+/* =============================================
+   PROJECTS — CAROUSEL
    ============================================= */
 #projects {
     width: 100%;
 }
 
-.projectsGallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.projectsCarousel {
+    position: relative;
+    margin-top: 24px;
+    padding: 0 56px;
+}
+
+.carouselViewport {
+    overflow: hidden;
+    border-radius: var(--radius);
+    padding-top: 6px;
+}
+
+.carouselTrack {
+    display: flex;
     gap: 24px;
-    margin-top: 8px;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.carouselTrack .projectBox {
+    flex: 0 0 calc((100% - 24px) / 2);
+    min-width: 0;
+}
+
+.carouselBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(18, 35, 91, 0.85);
+    border: 1.5px solid rgba(240, 192, 64, 0.35);
+    color: var(--gold);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 5;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 0;
+}
+
+.carouselBtn svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.carouselBtn:hover:not(:disabled) {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--blue-navy);
+    box-shadow: 0 4px 18px var(--gold-glow);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.carouselBtn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.carouselPrev { left: 0; }
+.carouselNext { right: 0; }
+
+.carouselDots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.carouselDots button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(240, 192, 64, 0.3);
+    cursor: pointer;
+    padding: 0;
+    transition: var(--transition);
+}
+
+.carouselDots button:hover {
+    background: rgba(240, 192, 64, 0.6);
+}
+
+.carouselDots button.active {
+    background: var(--gold);
+    width: 28px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--gold-glow);
 }
 
 .projectBox {
     position: relative;
-    height: 320px;
+    height: 340px;
     border-radius: var(--radius);
     overflow: hidden;
     background-size: cover;
@@ -649,6 +895,22 @@ nav ul li a:hover {
     cursor: pointer;
     transition: var(--transition);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.projectTag {
+    display: inline-block;
+    align-self: flex-start;
+    font-family: 'Dosis', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    background: rgba(240, 192, 64, 0.12);
+    border: 1px solid rgba(240, 192, 64, 0.3);
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
 }
 
 .projectBox:hover {
@@ -767,7 +1029,40 @@ nav ul li a:hover {
     color: var(--text-light);
     font-size: 1rem;
     line-height: 1.85;
-    max-width: 600px;
+    max-width: 620px;
+}
+
+.aboutHighlights {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 620px;
+}
+
+.aboutHighlights li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.aboutHighlights li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--green) 0%, var(--green) 35%, transparent 60%);
+    box-shadow: 0 0 8px var(--green-glow);
+}
+
+.aboutHighlights strong {
+    color: var(--white);
+    font-weight: 600;
 }
 
 /* =============================================
@@ -884,8 +1179,8 @@ footer {
    RESPONSIVE
    ============================================= */
 @media (max-width: 1024px) {
-    .projectsGallery {
-        grid-template-columns: repeat(2, 1fr);
+    .carouselTrack .projectBox {
+        flex: 0 0 calc((100% - 24px) / 2);
     }
 }
 
@@ -932,8 +1227,24 @@ footer {
         padding-right: 6%;
     }
 
+    .heroContent h2,
+    .heroTagline {
+        display: inline-block;
+        background: rgba(5, 10, 26, 0.55);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        padding: 4px 12px;
+        border-radius: 6px;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+
     .heroContent h2 {
         font-size: clamp(1.6rem, 6vw, 2.4rem);
+    }
+
+    .heroTagline {
+        padding: 8px 14px;
     }
 
     .infoSection {
@@ -941,11 +1252,43 @@ footer {
         gap: 60px;
     }
 
-    .projectsGallery {
-        grid-template-columns: 1fr;
+    .projectsCarousel {
+        padding: 0 0 0 0;
+    }
+
+    .carouselTrack .projectBox {
+        flex: 0 0 100%;
+    }
+
+    .carouselBtn {
+        width: 38px;
+        height: 38px;
+        top: auto;
+        bottom: -58px;
+        transform: none;
+        background: rgba(18, 35, 91, 0.95);
+    }
+
+    .carouselBtn:hover:not(:disabled) {
+        transform: scale(1.08);
+    }
+
+    .carouselPrev { left: calc(50% - 70px); }
+    .carouselNext { right: calc(50% - 70px); }
+
+    .carouselDots {
+        margin-top: 18px;
+    }
+
+    .projectsCarousel {
+        padding-bottom: 56px;
     }
 
     .skillsSection {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .servicesGrid {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -993,6 +1336,20 @@ footer {
 @media (max-width: 480px) {
     .skillsSection {
         grid-template-columns: 1fr;
+    }
+
+    .servicesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .heroCTAs {
+        width: 100%;
+    }
+
+    .btnPrimary,
+    .btnSecondary {
+        flex: 1;
+        min-width: 0;
     }
 
     #contactForm button[type="submit"],
