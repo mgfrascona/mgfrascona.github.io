@@ -171,3 +171,14 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight)
     composer.setSize(window.innerWidth, window.innerHeight)
 })
+
+// Mobile view camera
+function mobileCameraDistance() {
+    if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768) {
+        camera.position.z = 7
+    } else {
+        camera.position.z = 5
+    }
+}
+mobileCameraDistance()
+window.addEventListener('resize', mobileCameraDistance)

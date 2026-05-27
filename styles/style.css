@@ -1227,24 +1227,17 @@ footer {
         padding-right: 6%;
     }
 
-    .heroContent h2,
-    .heroTagline {
-        display: inline-block;
-        background: rgba(5, 10, 26, 0.55);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-        padding: 4px 12px;
-        border-radius: 6px;
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
-    }
-
     .heroContent h2 {
         font-size: clamp(1.6rem, 6vw, 2.4rem);
     }
 
     .heroTagline {
         padding: 8px 14px;
+    }
+
+    .heroContent h2, .heroTagline {
+        text-shadow: 1px 1px 8px black;
+
     }
 
     .infoSection {
@@ -1261,10 +1254,10 @@ footer {
     }
 
     .carouselBtn {
-        width: 38px;
-        height: 38px;
+        width: 60px;
+        height: 60px;
         top: auto;
-        bottom: -58px;
+        bottom: -30px;
         transform: none;
         background: rgba(18, 35, 91, 0.95);
     }
@@ -1285,11 +1278,11 @@ footer {
     }
 
     .skillsSection {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     .servicesGrid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     #aboutMe {
