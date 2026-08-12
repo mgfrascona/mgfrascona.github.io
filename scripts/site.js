@@ -22,6 +22,30 @@ if (window.matchMedia('(hover: none)').matches) {
 }
 
 /* =============================================
+   TESTIMONIAL REVEAL ON SCROLL
+   ============================================= */
+(function initTestimonialReveal() {
+    const cards = document.querySelectorAll('.testimonialCard');
+    if (!cards.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+        cards.forEach(card => card.classList.add('is-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
+
+    cards.forEach(card => observer.observe(card));
+})();
+
+/* =============================================
    PROJECTS CAROUSEL
    ============================================= */
 (function initProjectCarousel() {

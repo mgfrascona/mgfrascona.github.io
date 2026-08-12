@@ -55,6 +55,10 @@ body {
     animation: pageFadeIn 0.4s ease-in;
 }
 
+/* =============================================
+   Animations
+   ============================================= */
+
 @keyframes pageFadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -75,6 +79,17 @@ body {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyFrames testimonialSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
@@ -551,7 +566,8 @@ nav ul li a:hover {
     margin-top: 8px;
 }
 
-/* Apply to existing h3s inside infoSection */
+/* h3s inside infoSection */
+.testimonials h3,
 .missionStatement h3,
 .skills h3,
 .services h3,
@@ -565,6 +581,7 @@ nav ul li a:hover {
     margin-bottom: 8px;
 }
 
+.testimonials h3::after,
 .missionStatement h3::after,
 .skills h3::after,
 .services h3::after,
@@ -579,6 +596,225 @@ nav ul li a:hover {
     border-radius: 2px;
     margin-top: 8px;
     margin-bottom: 16px;
+}
+
+/* =============================================
+   TESTIMONIALS
+   ============================================= */
+.testimonials {
+    width: 100%;
+}
+
+.testimonialsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+    margin-top: 20px;
+}
+
+.testimonialCard {
+    position: relative;
+    background: var(--blue-deeper);
+    border: 1px solid rgba(240, 192, 64, 0.22);
+    border-radius: var(--radius);
+    padding: 36px 34px 30px;
+    transition: var(--transition);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateX(-80px);
+}
+
+.testimonialCard.is-visible {
+    animation: testimonialSlideIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+}
+
+@keyframes testimonialSlideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Respect users who prefer no motion */
+@media (prefers-reduced-motion: reduce) {
+    .testimonialCard {
+        opacity: 1;
+        transform: none;
+    }
+    .testimonialCard.is-visible {
+        animation: none;
+    }
+}
+
+/* Animated gold shimmer bar along the top */
+.testimonialCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold-lighter), var(--gold-light), var(--gold), var(--gold-dark));
+    background-size: 200% 100%;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+    animation: goldShimmer 3s linear infinite;
+}
+
+/* Soft green corner glow */
+.testimonialCard::after {
+    content: '';
+    position: absolute;
+    bottom: -620px;
+    right: 0px;
+    width: 1600px;
+    height: 1200px;
+    background: radial-gradient(ellipse, var(--blue) 0%, transparent 50%);
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.testimonialCard:hover {
+    transform: translateY(-4px);
+    border-color: rgba(240, 192, 64, 0.5);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(240, 192, 64, 0.15);
+}
+
+.testimonialCard:hover::before { opacity: 1; }
+.testimonialCard:hover::after { opacity: 0.7; }
+
+.testimonialQuoteMark {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-family: 'Dosis', serif;
+    font-size: 15rem;
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.3;
+    text-shadow: 0 0 15px var(--gold-glow);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}
+
+.testimonialRating {
+    display: flex;
+    gap: 4px;
+    font-size: 2.05rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    filter: drop-shadow(0 0 4px var(--gold-glow));
+    position: relative;
+    z-index: 1;
+}
+
+.testimonialQuote {
+    position: relative;
+    z-index: 1;
+    border-left: 2px solid rgba(76, 198, 88, 0.35);
+    padding-left: 18px;
+    margin: 0;
+}
+
+.testimonialQuote p {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text-light);
+    margin: 0 0 12px;
+}
+
+.testimonialQuote p:last-child { margin-bottom: 0; }
+
+.testimonialQuote em {
+    color: var(--white);
+    font-style: italic;
+    font-weight: 500;
+}
+
+.testimonialAuthor {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    z-index: 1;
+}
+
+.testimonialAvatar {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    border: 2px solid var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    box-shadow: 0 0 12px var(--green-glow);
+}
+
+.testimonialAvatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimonialAuthorInfo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
+}
+
+.testimonialAuthorName {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--white);
+    letter-spacing: 0.02em;
+}
+
+.testimonialAuthorRole {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+    .testimonialCard {
+        padding: 30px 24px 26px;
+    }
+
+    .testimonialQuoteMark {
+        font-size: 8rem;
+        top: -15px;
+        right: 14px;
+    }
+
+    .testimonialQuote {
+        padding-left: 14px;
+    }
+
+    .testimonialQuote p {
+        font-size: 0.95rem;
+    }
 }
 
 /* =============================================
@@ -606,7 +842,7 @@ nav ul li a:hover {
 }
 
 .skillsCard {
-    background-color: rgba(200, 150, 10, 0.5);
+    background-color: rgba(244, 179, 0, 0.35);
     border: 1px solid rgba(240, 192, 64, 0.2);
     border-radius: var(--radius);
     padding: 24px 20px;
@@ -722,8 +958,8 @@ nav ul li a:hover {
 }
 
 .serviceCard {
-    background: var(--card-bg);
-    border: 1px solid var(--green-outline);
+    background: rgba(56, 88, 196, 0.35);
+    border: 1px solid rgba(56, 88, 196, 0.4);
     border-radius: var(--radius);
     padding: 28px 24px;
     transition: var(--transition);
@@ -736,16 +972,16 @@ nav ul li a:hover {
     position: absolute;
     top: 0; left: 0;
     width: 10px; height: 100%;
-    background: linear-gradient(180deg, var(--blue), var(--blue-deeper));
+    background: linear-gradient(180deg, var(--green), #1e4d22);
     transition: opacity 0.3s ease;
     box-shadow: 0 0 5px rgba(0, 0, 0, 1);
 }
 
 .serviceCard:hover {
     transform: translateY(-6px);
-    border-color: rgba(76, 198, 88, 0.4);
-    background: rgba(30, 77, 34, 0.4);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(76, 198, 88, 0.15);
+    border-color: rgba(76, 198, 88, 0.5);
+    background: rgba(76, 198, 88, 0.35);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(76, 198, 88, 0.2);
 }
 
 .serviceIcon {
@@ -756,8 +992,8 @@ nav ul li a:hover {
     justify-content: center;
     border-radius: 10px;
     background: rgba(56, 88, 196, 0.7);
-    border: 1px solid rgba(76, 198, 88, 0.25);
-    color: var(--green);
+    border: 1px solid rgba(56, 88, 196, 0.35);
+    color: var(--white);
     margin-bottom: 16px;
     transition: var(--transition);
 }
@@ -769,9 +1005,11 @@ nav ul li a:hover {
 }
 
 .serviceCard:hover .serviceIcon {
-    background: rgba(56, 88, 196, 0.3);
+    background: rgba(76, 198, 88, 0.7);
     border-color: var(--green);
+    color: var(--white);
     transform: scale(1.05);
+    box-shadow: 0 0 12px var(--green-glow);
 }
 
 .serviceCard h4 {
@@ -894,7 +1132,7 @@ nav ul li a:hover {
 
 .projectBox {
     position: relative;
-    height: 340px;
+    height: 500px;
     border-radius: var(--radius);
     overflow: hidden;
     background-size: cover;
@@ -1032,6 +1270,61 @@ nav ul li a:hover {
     box-shadow: 0 0 30px var(--green-glow);
     flex-shrink: 0;
 }
+
+.aboutMeInfo {
+    background:
+        linear-gradient(135deg, rgba(56, 88, 196, 0.14) 0%, rgba(76, 198, 88, 0.06) 100%),
+        rgba(5, 10, 26, 0.55);
+    border: 1px solid rgba(240, 192, 64, 0.22);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    transition: var(--transition);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.aboutMeInfo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold-lighter), var(--gold-light), var(--gold), var(--gold-dark));
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+    animation: goldShimmer 3s linear infinite;
+}
+
+.aboutMeInfo::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--green-glow) 0%, transparent 70%);
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.aboutMeInfo:hover {
+    transform: translateY(-4px);
+    border-color: rgba(240, 192, 64, 0.5);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(240, 192, 64, 0.15);
+    transition: all 0.3s ease;
+}
+
+.aboutMeInfo:hover::before { opacity: 1; }
+.aboutMeInfo:hover::after { opacity: 0.9; }
 
 .aboutMeInfo p {
     color: var(--text-light);
@@ -1192,6 +1485,8 @@ footer {
     .carouselTrack .projectBox {
         flex: 0 0 calc((100% - 24px) / 2);
     }
+    
+
 }
 
 @media (max-width: 768px) {
@@ -1337,6 +1632,10 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .testimonialQuote {
+        margin-right: 0;
+    }
+    
     .skillsSection {
         grid-template-columns: 1fr;
     }
