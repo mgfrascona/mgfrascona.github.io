@@ -1,15 +1,48 @@
 import Header from './components/Header'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
+import StarRating from './components/StarRating'
+import { FaStar, FaRegStar } from 'react-icons/fa'
 
-const michaelsHobbies = [
+/* const michaelsHobbies = [
   "Drawing",
   "Swimming",
   "3D modeling",
-  "Reading books about evolution and outer space",
-  "Gaming (especially Nintendo and Minecraft)",
+  "Reading",
+  "Gaming (esp. Nintendo and Minecraft)",
   "Dungeons & Dragons",
   "Worldbuilding"
+] */
+
+const michaelsHobbies = [
+  {
+    hobby: 'Drawing',
+    initialRating: '4',
+  },
+  {
+    hobby: 'Swimming',
+    initialRating: '2',
+  },
+  {
+    hobby: '3D modeling',
+    initialRating: '3',
+  },
+  {
+    hobby: 'Reading',
+    initialRating: '2',
+  },
+  {
+    hobby: 'Gaming (esp. Nintendo and Minecraft)',
+    initialRating: '4',
+  },
+  {
+    hobby: 'Dungeons & Dragons',
+    initialRating: '4',
+  },
+  {
+    hobby: 'Worldbuilding',
+    initialRating: '5',
+  }
 ]
 
 const sectionStyle = {
@@ -17,9 +50,9 @@ const sectionStyle = {
   paddingRight: '50px',
   paddingTop: '25px',
   paddingBottom: '25px',
-  backgroundColor: '#e8ae00',
+  backgroundColor: '#ffe7a0',
   fontSize: '1.1rem',
-  width:'30%',
+  width:'60%',
   marginRight:'auto',
   marginLeft:'auto',
   borderRadius: '25px'
@@ -40,7 +73,12 @@ const App = () => {
         <section style={sectionStyle}>
           <h2>Hobbies</h2>
           <ul className="personal-favorites">
-            {michaelsHobbies.map((hobby, index) => <li key={index}>{hobby}</li>)}
+            {michaelsHobbies.map(({ hobby, initialRating }, index) => (
+              <li key={index}>
+                {hobby}
+                <StarRating initialRating={initialRating} onClick />
+              </li>
+            ))}
           </ul>
         </section>
       </main>
