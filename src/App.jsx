@@ -3,47 +3,7 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import StarRating from './components/StarRating'
 import { FaStar, FaRegStar } from 'react-icons/fa'
-
-/* const michaelsHobbies = [
-  "Drawing",
-  "Swimming",
-  "3D modeling",
-  "Reading",
-  "Gaming (esp. Nintendo and Minecraft)",
-  "Dungeons & Dragons",
-  "Worldbuilding"
-] */
-
-const michaelsHobbies = [
-  {
-    hobby: 'Drawing',
-    initialRating: '4',
-  },
-  {
-    hobby: 'Swimming',
-    initialRating: '2',
-  },
-  {
-    hobby: '3D modeling',
-    initialRating: '3',
-  },
-  {
-    hobby: 'Reading',
-    initialRating: '2',
-  },
-  {
-    hobby: 'Gaming (esp. Nintendo and Minecraft)',
-    initialRating: '4',
-  },
-  {
-    hobby: 'Dungeons & Dragons',
-    initialRating: '4',
-  },
-  {
-    hobby: 'Worldbuilding',
-    initialRating: '5',
-  }
-]
+import { useState, useEffect } from 'react'
 
 const sectionStyle = {
   paddingLeft: '50px',
@@ -60,6 +20,35 @@ const sectionStyle = {
 
 const App = () => {
 
+  const [ hobbies, setHobbies ] = useState([])
+  const [ isLoading, setIsLoading ] = useState(true)
+  const [ error, setError ] = useState(null)
+
+  useEffect(() => {
+      (async () => {
+          try {
+              const url = '/data/hobbies.json'
+              const response = await fetch(url)
+              if (!response.ok) throw new Error('Failed to fetch hobbies')
+              const data = await response.json()
+              setHobbies(data)
+          }
+          catch (err) {
+              setError(err.message)
+          }
+          finally {
+              setIsLoading(false)
+          }
+      })()  
+  }, [])
+
+  useEffect (() => {
+    document.title = `${hobbies.length} Favorite Hobbies`
+  }, [hobbies])
+
+  if (isLoading) return <div>Loading hobbies, please wait...</div>
+  if (error) return <div>Error: {error}</div>
+
   return (
     <div className="app" >
       <Header name="Michael Frascona" tagline="Web Designer with artistic flair!">
@@ -73,10 +62,16 @@ const App = () => {
         <section style={sectionStyle}>
           <h2>Hobbies</h2>
           <ul className="personal-favorites">
-            {michaelsHobbies.map(({ hobby, initialRating }, index) => (
-              <li key={index}>
-                {hobby}
-                <StarRating initialRating={initialRating} onClick />
+            {hobbies.map(({id, hobby, type, skillLevel, location, cost, initialRating}) => (
+              <li key={id}>
+                <strong>{id} - {hobby}</strong>
+                <ul>
+                  <li><strong>Type:</strong> {type}</li>
+                  <li><strong>Skill Level</strong> {skillLevel}</li>
+                  <li><strong>Location:</strong> {location}</li>
+                  <li><strong>Cost:</strong> {cost}</li>
+                </ul>
+                <StarRating initialRating={initialRating} />
               </li>
             ))}
           </ul>

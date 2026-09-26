@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "hobby": "Drawing",
+    "type": "Creative",
+    "skillLevel": "Advanced",
+    "location": "Indoors",
+    "cost": "Free",
+    "initialRating": "4"
+  },
+  {
+    "id": 2,
+    "hobby": "Swimming",
+    "type": "Athletic",
+    "skillLevel": "Beginner",
+    "location": "Outdoors, indoors",
+    "cost": "Low",
+    "initialRating": "2"
+  },
+  {
+    "id": 3,
+    "hobby": "3D modeling",
+    "type": "Technical",
+    "skillLevel": "Intermediate",
+    "location": "Indoors",
+    "cost": "Free",
+    "initialRating": "3"
+  },
+  {
+    "id": 4,
+    "hobby": "Reading",
+    "type": "Relaxation",
+    "skillLevel": "Advanced",
+    "location": "Indoors",
+    "cost": "Medium",
+    "initialRating": "2"
+  },
+  {
+    "id": 5,
+    "hobby": "Gaming (esp. Nintendo and Minecraft)",
+    "type": "Recreational",
+    "skillLevel": "Intermediate",
+    "location": "Indoors, online",
+    "cost": "High",
+    "initialRating": "4"
+  },
+  {
+    "id": 6,
+    "hobby": "Dungeons & Dragons",
+    "type": "Recreational",
+    "skillLevel": "Intermediate",
+    "location": "Indoors, online",
+    "cost": "High",
+    "initialRating": "4"
+  },
+  {
+    "id": 7,
+    "hobby": "Worldbuilding",
+    "type": "Creative",
+    "skillLevel": "Advanced",
+    "location": "Indoors",
+    "cost": "Free",
+    "initialRating": "5"
+  }
+]
