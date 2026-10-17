@@ -2,21 +2,11 @@ import Header from './components/Header'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import StarRating from './components/StarRating'
+import ThemeToggle from './components/ThemeToggle'
 import { FaStar, FaRegStar } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 
-const sectionStyle = {
-  paddingLeft: '50px',
-  paddingRight: '50px',
-  paddingTop: '25px',
-  paddingBottom: '25px',
-  backgroundColor: '#ffe7a0',
-  fontSize: '1.1rem',
-  width:'60%',
-  marginRight:'auto',
-  marginLeft:'auto',
-  borderRadius: '25px'
-}
+
 
 const App = () => {
 
@@ -46,15 +36,37 @@ const App = () => {
     document.title = `${hobbies.length} Favorite Hobbies`
   }, [hobbies])
 
+  const [ theme, setTheme ] = useState('light')
+
   if (isLoading) return <div>Loading hobbies, please wait...</div>
   if (error) return <div>Error: {error}</div>
 
+  const sectionStyle = {
+    paddingLeft: '50px',
+    paddingRight: '50px',
+    paddingTop: '25px',
+    paddingBottom: '25px',
+    color: theme === 'dark' ? '#fff6a4' : 'black',
+    backgroundColor: theme === 'dark' ? '#3d3d3d' : '#a5e289',
+    fontSize: '1.1rem',
+    width:'60%',
+    marginRight:'auto',
+    marginLeft:'auto',
+    borderRadius: '25px',
+    transition: 'background-color 0.3s, color 0.3s'
+  }
+
+  const mainStyle = {
+    backgroundColor: theme === 'dark' ? '#1a1a1a' : 'white',
+    transition: 'background-color 0.3s, color 0.3s',
+  }
+
   return (
-    <div className="app" >
-      <Header name="Michael Frascona" tagline="Web Designer with artistic flair!">
-        <Nav />
-      </Header>
-      <main>
+    <div className="app">
+      <Header name="Michael Frascona" tagline="Web Designer with artistic flair!" theme={theme} />
+      <Nav theme={theme} />
+      <main style={mainStyle}>
+        <ThemeToggle theme={theme} setTheme={setTheme} />
         <section style={sectionStyle}>
           <h2>About Me</h2>
           <p>I'm a web and UI/UX designer who first entered the field through animation and 3D art. That background shapes how I work: I build websites that actually feel alive, and I spot details most people skim past. As an autistic designer, I'm wired to notice if something isn't quite right, even if it's tiny. I'd rather fix it than just ship it. I specifically love working with small businesses and nonprofits, where one well-built site can genuinely change how an organization shows up in the world.</p>
@@ -71,13 +83,13 @@ const App = () => {
                   <li><strong>Location:</strong> {location}</li>
                   <li><strong>Cost:</strong> {cost}</li>
                 </ul>
-                <StarRating initialRating={initialRating} />
+                <StarRating initialRating={initialRating} theme={theme} />
               </li>
             ))}
           </ul>
         </section>
       </main>
-      <Footer />
+      <Footer theme={theme} />
     </div>
   )
 }

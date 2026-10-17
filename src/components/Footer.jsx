@@ -1,19 +1,21 @@
-const footerStyle = {
-    padding: '20px',
-    backgroundColor: '#1a1956',
-    color: 'white',
-}
 
-const footerLinkStyle = {
-    color: 'white',
-    textDecoration: 'none',
-}
 
-const smallStyle = {
-    fontSize: '0.8rem',
-}
+const Footer = ({ theme }) => {
+    const footerStyle = {
+        padding: '20px',
+        backgroundColor: theme === 'dark' ? '#3d3d3d' : '#4a48ab',
+        color: theme === 'dark' ? '#fff6a4' : 'white',
+    }
 
-const Footer = () => {
+    const footerLinkStyle = {
+        color: theme === 'dark' ? '#fff6a4' : 'white',
+        textDecoration: 'none',
+    }
+
+    const smallStyle = {
+        fontSize: '0.8rem',
+    }
+
     return (
         <footer style={footerStyle}>
             <small>&copy; 2026 Michael Frascona. All rights reserved.</small>

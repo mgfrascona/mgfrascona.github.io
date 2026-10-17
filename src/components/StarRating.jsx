@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { FaStar, FaRegStar } from 'react-icons/fa'
 
-const StarRating = ({ initialRating, color }) => {
+const StarRating = ({ initialRating, theme }) => {
     const [currentRating, setCurrentRating] = useState(initialRating)
     
     const changeRating = rating => {
@@ -12,8 +12,8 @@ const StarRating = ({ initialRating, color }) => {
         <div>
             {[1, 2, 3, 4, 5].map((star) =>
                 star <= currentRating 
-                    ? <FaStar key={star} color={color || "black"} onClick={() => changeRating(star)} style={{ cursor: 'pointer' }}/>
-                    : <FaRegStar key={star} color={color || "black"} onClick={() => changeRating(star)} style={{ cursor: 'pointer' }}/>
+                    ? <FaStar key={star} color={theme === 'dark' ? '#fff6a4' : 'black'} onClick={() => changeRating(star)} style={{ cursor: 'pointer' }}/>
+                    : <FaRegStar key={star} color={theme === 'dark' ? '#fff6a4' : 'black'} onClick={() => changeRating(star)} style={{ cursor: 'pointer' }}/>
             )}
         </div>
     )
