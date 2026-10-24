@@ -4,15 +4,15 @@ import Footer from './components/Footer'
 import StarRating from './components/StarRating'
 import ThemeToggle from './components/ThemeToggle'
 import { FaStar, FaRegStar } from 'react-icons/fa'
-import { useState, useEffect } from 'react'
-
-
+import { useState, useEffect, useContext } from 'react'
+import { ThemeContext } from './contexts/ThemeContext'
 
 const App = () => {
 
   const [ hobbies, setHobbies ] = useState([])
   const [ isLoading, setIsLoading ] = useState(true)
   const [ error, setError ] = useState(null)
+  const { theme } = useContext(ThemeContext)
 
   useEffect(() => {
       (async () => {
@@ -36,7 +36,7 @@ const App = () => {
     document.title = `${hobbies.length} Favorite Hobbies`
   }, [hobbies])
 
-  const [ theme, setTheme ] = useState('light')
+  //const [ theme, setTheme ] = useState('light')
 
   if (isLoading) return <div>Loading hobbies, please wait...</div>
   if (error) return <div>Error: {error}</div>
@@ -63,10 +63,10 @@ const App = () => {
 
   return (
     <div className="app">
-      <Header name="Michael Frascona" tagline="Web Designer with artistic flair!" theme={theme} />
-      <Nav theme={theme} />
+      <Header name="Michael Frascona" tagline="Web Designer with artistic flair!" />
+      <Nav />
       <main style={mainStyle}>
-        <ThemeToggle theme={theme} setTheme={setTheme} />
+        <ThemeToggle />
         <section style={sectionStyle}>
           <h2>About Me</h2>
           <p>I'm a web and UI/UX designer who first entered the field through animation and 3D art. That background shapes how I work: I build websites that actually feel alive, and I spot details most people skim past. As an autistic designer, I'm wired to notice if something isn't quite right, even if it's tiny. I'd rather fix it than just ship it. I specifically love working with small businesses and nonprofits, where one well-built site can genuinely change how an organization shows up in the world.</p>
@@ -83,13 +83,13 @@ const App = () => {
                   <li><strong>Location:</strong> {location}</li>
                   <li><strong>Cost:</strong> {cost}</li>
                 </ul>
-                <StarRating initialRating={initialRating} theme={theme} />
+                <StarRating initialRating={initialRating} />
               </li>
             ))}
           </ul>
         </section>
       </main>
-      <Footer theme={theme} />
+      <Footer />
     </div>
   )
 }

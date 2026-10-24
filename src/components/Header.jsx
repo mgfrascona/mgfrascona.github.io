@@ -1,10 +1,12 @@
-
+import { useContext } from 'react'
+import { ThemeContext } from '../contexts/ThemeContext.jsx'
 
 const headerTitleStyle = {
     fontSize:'4rem'
 }
 
-const Header = ({ name, tagline, children, theme }) => {
+const Header = ({ name, tagline, children }) => {
+    const { theme } = useContext(ThemeContext)
     const displayName = name
     const displayTagline = tagline
 

@@ -1,8 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useContext } from 'react'
+import { ThemeContext } from '../contexts/ThemeContext.jsx'
 
 // Sets up component that switches between light and dark themes
-const ThemeToggle = ({ theme, setTheme }) => {
+const ThemeToggle = () => {
 
+    const { theme, setTheme } = useContext(ThemeContext)
     const buttonRef = useRef(null)
 
     useEffect(() => {
@@ -18,7 +20,7 @@ const ThemeToggle = ({ theme, setTheme }) => {
     const toggleTheme = () => {
         // Boolean that checks the new theme based on the current theme
         const newTheme = isDarkMode(theme) ? 'light' : 'dark';
-        // Updates the theme state in the parent component
+        // Updates the theme state in the context (ThemeProvider).
         setTheme(newTheme);
     }
 

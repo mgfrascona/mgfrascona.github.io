@@ -1,6 +1,9 @@
+import { useContext } from 'react'
+import { ThemeContext } from '../contexts/ThemeContext.jsx'
 
+const Footer = () => {
+    const { theme } = useContext(ThemeContext)
 
-const Footer = ({ theme }) => {
     const footerStyle = {
         padding: '20px',
         backgroundColor: theme === 'dark' ? '#3d3d3d' : '#4a48ab',

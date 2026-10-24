@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { FaStar, FaRegStar } from 'react-icons/fa'
+import { ThemeContext } from '../contexts/ThemeContext'
 
-const StarRating = ({ initialRating, theme }) => {
+const StarRating = ({ initialRating }) => {
+    const { theme } = useContext(ThemeContext)
     const [currentRating, setCurrentRating] = useState(initialRating)
     
     const changeRating = rating => {

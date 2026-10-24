@@ -1,4 +1,8 @@
-const Nav = ({theme}) => {
+import { useContext } from 'react'
+import { ThemeContext } from '../contexts/ThemeContext.jsx'
+
+const Nav = () => {
+    const { theme } = useContext(ThemeContext)
     const listStyle = {
         listStyleType: 'none',
         margin: '0',
