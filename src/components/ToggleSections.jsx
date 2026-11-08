@@ -23,6 +23,7 @@ const ToggleSections = ({ dispatch }) => {
             <button style={toggleButtonStyle} onClick={() => dispatch({ type: 'TOGGLE_ABOUT' })}>About</button>
             <button style={toggleButtonStyle} onClick={() => dispatch({ type: 'TOGGLE_FAVORITES' })}>Favorites</button>
             <button style={toggleButtonStyle} onClick={() => dispatch({ type: 'TOGGLE_CONTACT' })}>Contact</button>
+            <button style={toggleButtonStyle} onClick={() => dispatch({ type: 'TOGGLE_CATFACTS' })}>Cat Facts</button>
             <button style={toggleButtonStyle} onClick={() => dispatch({ type: 'RESET' })}>Show All</button>
         </div>
     )

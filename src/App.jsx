@@ -8,13 +8,15 @@ import { useState, useEffect, useContext } from 'react'
 import { ThemeContext } from './contexts/ThemeContext'
 import ToggleSections from './components/ToggleSections'
 import { useReducer } from 'react'
+import CatFacts from './components/CatFacts'
 
 
 
 const initialState = {
     showAbout: true,
     showFavorites: true,
-    showContact: true
+    showContact: true,
+    showCatFacts: true
 }
 
 const sectionReducer = (state, action) => {
@@ -25,6 +27,8 @@ const sectionReducer = (state, action) => {
             return { ...state, showFavorites: !state.showFavorites }
         case 'TOGGLE_CONTACT':
             return { ...state, showContact: !state.showContact }
+        case 'TOGGLE_CATFACTS':
+            return { ...state, showCatFacts: !state.showCatFacts }
         case 'RESET':
             return initialState
         default:
@@ -121,7 +125,7 @@ const App = () => {
                   <strong>{id} - {hobby}</strong>
                   <ul>
                     <li><strong>Type:</strong> {type}</li>
-                    <li><strong>Skill Level</strong> {skillLevel}</li>
+                    <li><strong>Skill Level:</strong> {skillLevel}</li>
                     <li><strong>Location:</strong> {location}</li>
                     <li><strong>Cost:</strong> {cost}</li>
                   </ul>
@@ -135,6 +139,11 @@ const App = () => {
           <section style={sectionStyle}>
               <h2>Contact</h2>
               <p>Email: <a style={mailToStyle} href="mailto:michaelgfrascona@gmail.com">michaelgfrascona@gmail.com</a></p>
+          </section>          
+        )}
+        {sections.showCatFacts && (
+          <section style={sectionStyle}>
+              <CatFacts />
           </section>          
         )}
       </main>
