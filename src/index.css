@@ -21,6 +21,15 @@ main {
     transform: scale(1.05);
 }
 
+.projectButton:hover {
+  transform: scale(1.05);
+}
+
+.projectButton a {
+  color: inherit;
+  text-decoration: none;
+}
+
 @media (max-width: 600px) {
   main {
     flex-direction: column;
